@@ -67,6 +67,7 @@ public class Topic_01_Step_By_Step {
 		driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("123123"); // password
 		driver.findElement(By.xpath("//input[@id='ConfirmPassword']")).sendKeys("123123"); // ConfirmPassword
 
+		//Click register
 		driver.findElement(By.xpath("//input[@id='register-button']")).click();
 	}
 
