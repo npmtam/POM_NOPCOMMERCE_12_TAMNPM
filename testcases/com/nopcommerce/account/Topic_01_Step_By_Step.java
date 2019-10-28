@@ -45,29 +45,30 @@ public class Topic_01_Step_By_Step {
 		driver.findElement(By.xpath("//input[@id='gender-male']")).click(); // Select gender
 		driver.findElement(By.xpath("//input[@id='FirstName']")).sendKeys("Danny"); // Fill Firstname
 		driver.findElement(By.xpath("//input[@id='LastName']")).sendKeys("Cee"); // Fill Lastname
-//		//D.O.B
-//		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthDay']")));
-//		select.selectByVisibleText("10"); 
-//		
-//		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']")));
-//		select.selectByVisibleText("October"); 
-//		
-//		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthYear']")));
-//		select.selectByVisibleText("1990");
+		//D.O.B
+		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthDay']")));
+		select.selectByVisibleText("10"); 
+		
+		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']")));
+		select.selectByVisibleText("October"); 
+		
+		select = new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthYear']")));
+		select.selectByVisibleText("1990");
 
-		//DOB
-		selectItemInDropdown("//select[@name='DateOfBirthDay']", "//select[@name='DateOfBirthDay']/option", "10");
-		Thread.sleep(1000);
-		selectItemInDropdown("//select[@name='DateOfBirthMonth']", "//select[@name='DateOfBirthMonth']/option", "October");
-		Thread.sleep(1000);
-		selectItemInDropdown("//select[@name='DateOfBirthYear']", "//select[@name='DateOfBirthYear']/option", "1993");
+//		// DOB
+//		selectItemInDropdown("//select[@name='DateOfBirthDay']", "//select[@name='DateOfBirthDay']/option", "10");
+//		Thread.sleep(1000);
+//		selectItemInDropdown("//select[@name='DateOfBirthMonth']", "//select[@name='DateOfBirthMonth']/option",
+//				"October");
+//		Thread.sleep(1000);
+//		selectItemInDropdown("//select[@name='DateOfBirthYear']", "//select[@name='DateOfBirthYear']/option", "1993");
 
 		driver.findElement(By.xpath("//input[@id='Email']")).sendKeys("tamnguyen_" + randomNumber() + "@gmail.com"); // email
 		driver.findElement(By.xpath("//input[@id='Company']")).sendKeys("Step Sister"); // Company
 		driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("123123"); // password
 		driver.findElement(By.xpath("//input[@id='ConfirmPassword']")).sendKeys("123123"); // ConfirmPassword
 
-		//Click register
+		// Click register
 		driver.findElement(By.xpath("//input[@id='register-button']")).click();
 	}
 
@@ -76,13 +77,12 @@ public class Topic_01_Step_By_Step {
 
 	}
 
-	
-	//METHODS
+	// METHODS
 	public int randomNumber() {
 		Random random = new Random();
 		return random.nextInt(999);
 	}
-	
+
 	public void selectItemInDropdown(String parentLocator, String allItemsLocator, String expectedItem)
 			throws InterruptedException {
 		WebElement parentDropdown = driver.findElement(By.xpath(parentLocator));
@@ -108,4 +108,5 @@ public class Topic_01_Step_By_Step {
 				break;
 			}
 		}
+	}
 }

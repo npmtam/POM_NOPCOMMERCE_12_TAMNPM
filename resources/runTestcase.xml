@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="false">
-  <test name="Test">
+<suite name="Register and login" parallel="false">
+  <test name="RUN ON CHROME">
     <classes>
-      <class name="com.nopcommerce.account.Topic_02_Apply_Abstract_Page"/>
+      <class name="com.nopcommerce.account.Topic_03_Page_Object_Pattern"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

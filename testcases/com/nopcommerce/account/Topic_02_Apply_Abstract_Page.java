@@ -1,9 +1,11 @@
 package com.nopcommerce.account;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +22,8 @@ public class Topic_02_Apply_Abstract_Page {
 	Select select;
 	JavascriptExecutor jsExecutor;
 	WebDriverWait waitExplicit;
+	String email;
+	String password;
 	
 	public AbstractPage abstractPage;
 
@@ -27,37 +31,46 @@ public class Topic_02_Apply_Abstract_Page {
 	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", ".\\libaries\\chromedriver.exe");
 		driver = new ChromeDriver();
-		abstractPage = new AbstractPage();
+		abstractPage = new AbstractPage(driver);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		email = "tamnguyen_" + abstractPage.randomNumber() + "@gmail.com";
+		password = "123123";
 	}
 
 	@Test
 	public void TC_01_Register() throws InterruptedException {
-		abstractPage.openURL(driver, "https://demo.nopcommerce.com/login");
+		abstractPage.openURL("https://demo.nopcommerce.com/login");
 		
-		abstractPage.clickToElement(driver, "//a[@class='ico-register']");
-		assertTrue(abstractPage.isElementDisplayed(driver, "//div[@class='page registration-page']"));
+		abstractPage.clickToElement("//a[@class='ico-register']");
+		assertTrue(abstractPage.isElementDisplayed("//div[@class='page registration-page']"));
 		
-		abstractPage.clickToElement(driver, "//input[@id='gender-male']");
-		abstractPage.sendKeyToElement(driver, "//input[@id='FirstName']", "Danny");
-		abstractPage.sendKeyToElement(driver, "//input[@id='LastName']", "Cee");
+		abstractPage.clickToElement("//input[@id='gender-male']");
+		abstractPage.sendKeyToElement("//input[@id='FirstName']", "Danny");
+		abstractPage.sendKeyToElement("//input[@id='LastName']", "Cee");
 		
-		abstractPage.selectItemInDropdown(driver, "//select[@name='DateOfBirthDay']", "10");
-		abstractPage.selectItemInDropdown(driver, "//select[@name='DateOfBirthMonth']", "October");
-		abstractPage.selectItemInDropdown(driver, "//select[@name='DateOfBirthYear']", "1993");
+		abstractPage.selectItemInDropdown("//select[@name='DateOfBirthDay']", "10");
+		abstractPage.selectItemInDropdown("//select[@name='DateOfBirthMonth']", "October");
+		abstractPage.selectItemInDropdown("//select[@name='DateOfBirthYear']", "1993");
 		
-		abstractPage.sendKeyToElement(driver, "//input[@id='Email']", "\"tamnguyen_" + abstractPage.randomNumber() + "@gmail.com\"");
-		abstractPage.sendKeyToElement(driver, "//input[@id='Company']", "Step Sister");
-		abstractPage.sendKeyToElement(driver, "//input[@id='Password']", "123123");
-		abstractPage.sendKeyToElement(driver, "//input[@id='ConfirmPassword']", "123123");
+		abstractPage.sendKeyToElement("//input[@id='Email']", email);
+		abstractPage.sendKeyToElement("//input[@id='Company']", "Step Sister");
+		abstractPage.sendKeyToElement("//input[@id='Password']", password);
+		abstractPage.sendKeyToElement("//input[@id='ConfirmPassword']", password);
 		
-		abstractPage.clickToElement(driver, "//input[@id='register-button']");
-		
+		abstractPage.clickToElement("//input[@id='register-button']");
+		assertEquals(abstractPage.getTextElement("//div[@class='result']"), "Your registration completed");
 	}
 
 	@Test
 	public void TC_02_Login() {
+		abstractPage.clickToElement("//input[@name='register-continue']");
+		
+		abstractPage.sendKeyToElement("//input[@class='email']", email);
+		abstractPage.sendKeyToElement("//input[@class='password']", password);
+		abstractPage.clickToElement("//input[@class='button-1 login-button']");
+		
+		abstractPage.isElementDisplayed("//a[@class='ico-account']");
 		
 	}
 
