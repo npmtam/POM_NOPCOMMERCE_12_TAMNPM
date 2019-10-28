@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.LoginPageUI;
 import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject {

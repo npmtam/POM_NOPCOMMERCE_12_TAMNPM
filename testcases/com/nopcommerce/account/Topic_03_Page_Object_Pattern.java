@@ -44,9 +44,6 @@ public class Topic_03_Page_Object_Pattern {
 		email = "tamnguyen_" + abstractPage.randomNumber() + "@gmail.com";
 		password = "123123";
 		
-		loginPage = new LoginPageObject(driver);
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
 	}
 
 	@Test
@@ -55,6 +52,7 @@ public class Topic_03_Page_Object_Pattern {
 		homePage.clickToRegisterLink();
 		
 		registerPage = new RegisterPageObject(driver);
+		abstractPage.sleepInSecond(1);
 		registerPage.selectMaleGenderCheckBox();
 		registerPage.inputToFirstNameTextBox("Tam");
 		registerPage.inputToLastNameTextBox("Nguyen");
@@ -74,6 +72,11 @@ public class Topic_03_Page_Object_Pattern {
 
 	@Test
 	public void TC_02_Login() {
+		homePage = new HomePageObject(driver);
+		homePage.clickToSignOutButton();
+		abstractPage.sleepInSecond(1);
+		homePage.clickToLoginButton();
+		abstractPage.sleepInSecond(1);
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputToEmailTextBox(email);
 		loginPage.inputToPasswordButton(password);
