@@ -66,15 +66,17 @@ public class Topic_03_Page_Object_Pattern {
 		
 		registerPage.clickToRegisterButton();
 		boolean registerSuccess = registerPage.isResultMatched("Your registration completed");
+		abstractPage.sleepInSecond(1);
 		registerPage.clickToContinueButton();
 		assertTrue(registerSuccess);
 	}
 
 	@Test
 	public void TC_02_Login() {
+		abstractPage.sleepInSecond(2);
 		homePage = new HomePageObject(driver);
 		homePage.clickToSignOutButton();
-		abstractPage.sleepInSecond(1);
+		abstractPage.sleepInSecond(2);
 		homePage.clickToLoginButton();
 		abstractPage.sleepInSecond(1);
 		loginPage = new LoginPageObject(driver);
