@@ -3,12 +3,15 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
 import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends AbstractPage{
+	WebDriver driver;
 
 	public RegisterPageObject(WebDriver driver) {
 		super(driver);
+		this.driver = driver;
 	}
 
 	public void inputToFirstNameTextBox(String firstName) {
@@ -71,9 +74,11 @@ public class RegisterPageObject extends AbstractPage{
 
 	}
 
-	public void clickToContinueButton() {
+	public HomePageObject clickToContinueButton() {
 		waitToElementVisible(RegisterPageUI.CONTINUE_BUTTON);
 		clickToElement(RegisterPageUI.CONTINUE_BUTTON);
+		return PageGeneratorManager.getHomePage(driver);
+		
 	}
 	
 	public boolean isResultMatched(String expectedResult) {

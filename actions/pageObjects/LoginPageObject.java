@@ -3,14 +3,16 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
 import pageUIs.LoginPageUI;
 
 public class LoginPageObject extends AbstractPage {
 //	public AbstractPage abstracPage;
-//	private WebDriver driver;
+ WebDriver driver;
 
 	public LoginPageObject(WebDriver driver) {
 		super(driver);
+		this.driver = driver;
 	}
 	
 	public void inputToEmailTextBox(String emailAddress) {
@@ -23,8 +25,9 @@ public class LoginPageObject extends AbstractPage {
 		sendKeyToElement(LoginPageUI.PASSWORD_TEXTBOX, password);
 	}
 	
-	public void clickToLoginButton() {
+	public LoginPageObject clickToLoginButton() {
 		waitToElementVisible(LoginPageUI.LOGIN_BUTTON);
 		clickToElement(LoginPageUI.LOGIN_BUTTON);
+		return PageGeneratorManager.getLoginPage(driver);
 	}
 }
