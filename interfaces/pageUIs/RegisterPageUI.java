@@ -20,6 +20,5 @@ public class RegisterPageUI {
 	public static final String RESULT_LABEL = "//div[@class='result']";
 	public static final String CONTINUE_BUTTON = "//input[@name='register-continue']";
 	
-	public static final String FIRSTNAME_ERROR_LABEL = "//span[@id='FirstName-error']";
-	public static final String LASTNAME_ERROR_LABEL = "//span[@id='LastName-error']";
+	public static final String ERROR_MESSAGE_LABEL = "//div[@class='message-error validation-summary-errors']";
 }

@@ -104,6 +104,12 @@ public class AbstractPage {
 		return select.getFirstSelectedOption().getText();
 	}
 	
+	public void scrollToElement(String locator) {
+		element = driver.findElement(By.xpath(locator));
+		jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true)", element);
+	}
+	
 	public void selectItemInCustomDropdown(String parentLocator, String allItemsLocator, String expectedItem) {
 		jsExecutor = (JavascriptExecutor) driver;
 		waitExplicit = new WebDriverWait(driver, longTimeout);

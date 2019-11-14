@@ -71,7 +71,6 @@ public class RegisterPageObject extends AbstractPage{
 	public void clickToRegisterButton() {
 		waitToElementVisible(RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(RegisterPageUI.REGISTER_BUTTON);
-
 	}
 
 	public HomePageObject clickToContinueButton() {
@@ -89,4 +88,15 @@ public class RegisterPageObject extends AbstractPage{
 	public boolean isErrorMessageDisplayed(String fieldValue) {
 		return isElementDisplayed(RegisterPageUI.ERROR_MESSAGE_LABELS(fieldValue));
 	}
+	
+	public boolean isErrorMessageEquals(String fieldValue, String expectedText) {
+		String errorMsg = getTextElement(RegisterPageUI.ERROR_MESSAGE_LABELS(fieldValue));
+		boolean errorMsgEqual = errorMsg.equalsIgnoreCase(expectedText);
+		return errorMsgEqual;
+	}
+	
+	public boolean isErrorMessageOnTopDisplayed() {
+		return isElementDisplayed(RegisterPageUI.ERROR_MESSAGE_LABEL);
+	}
+	
 }

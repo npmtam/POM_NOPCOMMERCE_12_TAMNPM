@@ -1,7 +1,6 @@
 package com.nopcommerce.frontend;
 
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -33,10 +33,10 @@ public class FE_01_Register {
 
 	@BeforeClass
 	public void beforeClass() {
-//		System.setProperty("webdriver.chrome.driver", ".\\libaries\\chromedriver.exe");
-//		driver = new ChromeDriver();
-		System.setProperty("webdriver.gecko.driver", ".\\resources\\geckodriver.exe");
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", ".\\libaries\\chromedriver.exe");
+		driver = new ChromeDriver();
+//		System.setProperty("webdriver.gecko.driver", ".\\resources\\geckodriver.exe");
+//		driver = new FirefoxDriver();
 		abstractPage = new AbstractPage(driver);
 		driver.get("https://demo.nopcommerce.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -49,16 +49,42 @@ public class FE_01_Register {
 	public void TC_01_RegisterWithEmptyData() {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToRegisterLink();
+		abstractPage.sleepInSecond(1);
 
 		registerPage = PageGeneratorManager.getRegisterPage(driver);
 		registerPage.clickToRegisterButton();
+		abstractPage.sleepInSecond(1);
 
-//		Assert.assertTrue(registerPage.isErrorMessageDisplayed("FirstName"));
-//		Assert.assertTrue(registerPage.isErrorMessageDisplayed("LastName"));
-//		Assert.assertTrue(registerPage.isErrorMessageDisplayed("Email"));
-//		Assert.assertTrue(registerPage.isErrorMessageDisplayed("Password"));
-//		Assert.assertTrue(registerPage.isErrorMessageDisplayed("ConfirmPassword"));
+		Assert.assertTrue(registerPage.isErrorMessageDisplayed("FirstName"));
+		Assert.assertTrue(registerPage.isErrorMessageDisplayed("LastName"));
+		Assert.assertTrue(registerPage.isErrorMessageDisplayed("Email"));
+		Assert.assertTrue(registerPage.isErrorMessageDisplayed("Password"));
+		Assert.assertTrue(registerPage.isErrorMessageDisplayed("ConfirmPassword"));
 	}
 	
 	@Test
+	public void TC_02_RegisterWithInvalidEmail() {
+		abstractPage.sleepInSecond(1);
+		registerPage.inputToFirstNameTextBox("John");
+		registerPage.inputToLastNameTextBox("Wick");
+		registerPage.inputToEmailTextBox("123@123");
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
+		registerPage.clickToRegisterButton();
+		
+		Assert.assertTrue(registerPage.isErrorMessageEquals("Email", "Wrong email"));
+	}
+	
+	@Test
+	public void TC_03_RegisterWithExistEmail() {
+		abstractPage.sleepInSecond(1);
+//		registerPage.inputToFirstNameTextBox("John");
+//		registerPage.inputToLastNameTextBox("Wick");
+		registerPage.inputToEmailTextBox("tamqada@gmail.com");
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
+		registerPage.clickToRegisterButton();
+		
+		Assert.assertTrue(registerPage.isErrorMessageOnTopDisplayed());
+	}
 }
