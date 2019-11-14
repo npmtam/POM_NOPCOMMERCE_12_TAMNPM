@@ -2,7 +2,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.nopcommerce.account.Topic_01_Step_By_Step"/>
+      <class name="com.nopcommerce.frontend.FE_01_Register"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

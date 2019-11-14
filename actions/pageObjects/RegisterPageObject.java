@@ -85,4 +85,8 @@ public class RegisterPageObject extends AbstractPage{
 		waitToElementVisible(RegisterPageUI.RESULT_LABEL);
 		return isElementEquals(RegisterPageUI.RESULT_LABEL, expectedResult);		
 	}
+	
+	public boolean isErrorMessageDisplayed(String fieldValue) {
+		return isElementDisplayed(RegisterPageUI.ERROR_MESSAGE_LABELS(fieldValue));
+	}
 }

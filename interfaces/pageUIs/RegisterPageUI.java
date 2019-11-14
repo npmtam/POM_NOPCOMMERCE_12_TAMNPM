@@ -1,6 +1,10 @@
 package pageUIs;
 
 public class RegisterPageUI {
+	public static final String ERROR_MESSAGE_LABELS(String field) {
+		return "//span[@id='"+field+"-error']";
+	}
+	
 	public static final String MALE_CHECKBOX = "//input[@id='gender-male']";
 	public static final String FEMALE_CHECKBOX = "//input[@id='gender-female']";
 	public static final String FIRSTNAME_TEXTBOX = "//input[@id='FirstName']";
@@ -15,4 +19,7 @@ public class RegisterPageUI {
 	public static final String REGISTER_BUTTON = "//input[@id='register-button']";
 	public static final String RESULT_LABEL = "//div[@class='result']";
 	public static final String CONTINUE_BUTTON = "//input[@name='register-continue']";
+	
+	public static final String FIRSTNAME_ERROR_LABEL = "//span[@id='FirstName-error']";
+	public static final String LASTNAME_ERROR_LABEL = "//span[@id='LastName-error']";
 }
