@@ -1,7 +1,5 @@
 package com.nopcommerce.account;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -41,7 +39,7 @@ public class classTest {
 		driver.findElement(By.xpath("//a[@class='ico-register' and text()='Register']")).click();
 		Thread.sleep(1000);	
 //		  Verify Register Page displayed
-		assertTrue(driver.findElement(By.xpath("//div[@class='page registration-page']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page registration-page']")).isDisplayed());
 		Thread.sleep(1000);	
 //		  Click to gender radio button
 		driver.findElement(By.xpath("//input[@id='gender-female']")).click();
@@ -77,14 +75,14 @@ public class classTest {
 		driver.findElement(By.xpath("//input[@id='register-button']")).click();
 		Thread.sleep(1000);	
 //		  verify register success
-		assertTrue(driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']"))
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']"))
 				.isDisplayed());
 
 //		  Click to logout page
 		driver.findElement(By.xpath("//a[@class='ico-logout' and text()='Log out']")).click();
 
 //		  Verify navigate to home page success
-		assertEquals(driver.getCurrentUrl(), "https://demo.nopcommerce.com/");
+		Assert.assertEquals(driver.getCurrentUrl(), "https://demo.nopcommerce.com/");
 
 	}
 
@@ -105,7 +103,7 @@ public class classTest {
 //		  Click login btn
 		driver.findElement(By.cssSelector(".login-button")).click();
 //		  Verify login link displayed
-		assertTrue(driver.findElement(By.xpath("//a[@class='ico-account' and text()='My account']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='ico-account' and text()='My account']")).isDisplayed());
 
 	}
 
