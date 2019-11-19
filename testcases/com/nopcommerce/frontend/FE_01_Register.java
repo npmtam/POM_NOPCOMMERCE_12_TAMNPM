@@ -82,6 +82,8 @@ public class FE_01_Register {
 			break;
 		}
 		System.out.println(driver.toString());
+		abstractPage = new AbstractPage(driver);
+		driver.get("https://demo.nopcommerce.com/");
 	}
 
 	@Test
