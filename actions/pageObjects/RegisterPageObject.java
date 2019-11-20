@@ -89,11 +89,13 @@ public class RegisterPageObject extends AbstractPage{
 		return isElementDisplayed(RegisterPageUI.ERROR_MESSAGE_LABELS(fieldValue));
 	}
 	
-	public boolean isErrorMessageEquals(String fieldValue, String expectedText) {
-		String errorMsg = getTextElement(RegisterPageUI.ERROR_MESSAGE_LABELS(fieldValue));
-		boolean errorMsgEqual = errorMsg.equalsIgnoreCase(expectedText);
+	public boolean isErrorMessageContains(String fieldValue, String expectedText) {
+		String errorMsg = getTextElement(RegisterPageUI.ERROR_MESSAGEE_LABELS_CLASS(fieldValue));
+		System.out.println(errorMsg);
+		boolean errorMsgEqual = errorMsg.contains(expectedText);
 		return errorMsgEqual;
 	}
+	
 	
 	public boolean isErrorMessageOnTopDisplayed() {
 		return isElementDisplayed(RegisterPageUI.ERROR_MESSAGE_LABEL);

@@ -5,6 +5,10 @@ public class RegisterPageUI {
 		return "//span[@id='"+field+"-error']";
 	}
 	
+	public static final String ERROR_MESSAGEE_LABELS_CLASS(String field) {
+		return "//span[@class='"+field+"-error']";
+	}
+	
 	public static final String MALE_CHECKBOX = "//input[@id='gender-male']";
 	public static final String FEMALE_CHECKBOX = "//input[@id='gender-female']";
 	public static final String FIRSTNAME_TEXTBOX = "//input[@id='FirstName']";
