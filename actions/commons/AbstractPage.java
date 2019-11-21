@@ -14,6 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.HeaderMyAccountPO;
+import pageUIs.AbstractPageUI;
+
 public class AbstractPage {
 	WebDriver driver;
 	WebElement element;
@@ -272,5 +275,14 @@ public class AbstractPage {
 	public int randomNumber() {
 		Random random = new Random();
 		return random.nextInt();
+	}
+	
+	
+	
+	
+	public HeaderMyAccountPO openHeaderMyAccountPage() {
+		waitToElementVisible(AbstractPageUI.HEADER_MY_ACCOUNT_LINK);
+		clickToElement(AbstractPageUI.HEADER_MY_ACCOUNT_LINK);
+		return PageGeneratorManager.getHeaderMyAccountPage(driver);
 	}
 }

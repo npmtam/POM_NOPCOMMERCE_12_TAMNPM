@@ -34,4 +34,10 @@ WebDriver driver;
 	public boolean isMyAccountLinkDisplayed() {
 		return isElementDisplayed(HomePageUI.MY_ACCOUNT_BUTTON);
 	}
+	
+	public HeaderMyAccountPO clickToMyAccountHeader() {
+		waitToElementVisible(HomePageUI.MY_ACCOUNT_BUTTON);
+		clickToElement(HomePageUI.MY_ACCOUNT_BUTTON);
+		return PageGeneratorManager.getHeaderMyAccountPage(driver);
+	}
 }

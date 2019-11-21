@@ -151,4 +151,18 @@ public class FE_01_Register {
 		
 		assertTrue(registerPage.isErrorMessageDisplayed("ConfirmPassword"));
 	}
+	
+	@Test
+	public void TC_06_RegisterWithValidInfo() {
+		abstractPage.sleepInSecond(1);
+		abstractPage.sleepInSecond(1);
+		registerPage.inputToFirstNameTextBox("John");
+		registerPage.inputToLastNameTextBox("Wick");
+		registerPage.inputToEmailTextBox(email);
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
+		registerPage.clickToRegisterButton();
+		
+		assertTrue(registerPage.isResultMatched("Your registration completed"));
+	}
 }
