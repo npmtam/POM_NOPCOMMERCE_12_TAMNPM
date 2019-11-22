@@ -82,7 +82,7 @@ public class RegisterPageObject extends AbstractPage{
 	
 	public boolean isResultMatched(String expectedResult) {
 		waitToElementVisible(RegisterPageUI.RESULT_LABEL);
-		return isElementEquals(RegisterPageUI.RESULT_LABEL, expectedResult);		
+		return isElementEquals(RegisterPageUI.RESULT_LABEL, expectedResult);		 
 	}
 	
 	public boolean isErrorMessageDisplayed(String fieldValue) {

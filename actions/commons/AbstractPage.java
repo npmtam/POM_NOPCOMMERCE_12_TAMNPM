@@ -14,7 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.FooterShoppingCartPO;
 import pageObjects.HeaderMyAccountPO;
+import pageObjects.HeaderWishListPO;
 import pageUIs.AbstractPageUI;
 
 public class AbstractPage {
@@ -279,10 +281,27 @@ public class AbstractPage {
 	
 	
 	
-	
+	//Header and footer navigations
 	public HeaderMyAccountPO openHeaderMyAccountPage() {
-		waitToElementVisible(AbstractPageUI.HEADER_MY_ACCOUNT_LINK);
-		clickToElement(AbstractPageUI.HEADER_MY_ACCOUNT_LINK);
+		waitToElementVisible(AbstractPageUI.HEADER_LINKS("ico-account"));
+		clickToElement(AbstractPageUI.HEADER_LINKS("ico-account"));
 		return PageGeneratorManager.getHeaderMyAccountPage(driver);
 	}
+	
+	
+	
+	public HeaderWishListPO openWishListPage() {
+		waitToElementVisible(AbstractPageUI.HEADER_LINKS("ico-wishlist"));
+		clickToElement(AbstractPageUI.HEADER_LINKS("ico-wishlist"));
+		return PageGeneratorManager.getHeaderWishListPage(driver);
+	}
+	
+	
+	//Footer
+	public FooterShoppingCartPO openFooterShoppingCartPage() {
+		waitToElementVisible(AbstractPageUI.FOOTER_LINKS("Shopping cart"));
+		clickToElement(AbstractPageUI.FOOTER_LINKS("Shopping cart"));
+		return PageGeneratorManager.getFooterShoppingCartPage(driver);
+	}
 }
+	

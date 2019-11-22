@@ -18,11 +18,14 @@ import org.testng.annotations.Test;
 
 import commons.AbstractPage;
 import commons.PageGeneratorManager;
+import pageObjects.FooterShoppingCartPO;
+import pageObjects.HeaderMyAccountPO;
+import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Topic_06_WebDriverLifeCycle_ActionChaining {
+public class Topic_07_WebDriverLifeCycle_ActionChaining {
 	WebDriver driver;
 	Select select;
 	JavascriptExecutor jsExecutor;
@@ -34,6 +37,10 @@ public class Topic_06_WebDriverLifeCycle_ActionChaining {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
+	private HeaderMyAccountPO headerMyAccountPage;
+	private HeaderWishListPO headerWishListPage;
+	private FooterShoppingCartPO footerShoppingCartPage;
+	
 	
 //	@Parameters("browser")
 	@BeforeClass
@@ -94,6 +101,13 @@ public class Topic_06_WebDriverLifeCycle_ActionChaining {
 	
 	@Test
 	public void TC_03_ActionChaining() {
+		headerMyAccountPage = homePage.openHeaderMyAccountPage();
+		abstractPage.sleepInSecond(1);
 		
+		headerWishListPage = homePage.openWishListPage();
+		abstractPage.sleepInSecond(1);
+		
+		footerShoppingCartPage = homePage.openFooterShoppingCartPage();
+		abstractPage.sleepInSecond(1);
 	}
 }

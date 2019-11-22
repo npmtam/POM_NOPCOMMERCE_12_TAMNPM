@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Register and login test cases" parallel="false">
+	<test name="RUN ON FIREFOX UI">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="com.nopcommerce.frontend.FE_01_Register" />
+				<class name ="com.nopcommerce.frontend.FE_02_Login" />
+		</classes>
+	</test>
+</suite> <!-- Suite -->

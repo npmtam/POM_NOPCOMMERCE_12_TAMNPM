@@ -35,6 +35,10 @@ WebDriver driver;
 		return isElementDisplayed(HomePageUI.MY_ACCOUNT_BUTTON);
 	}
 	
+	public boolean isLoginLinkDisplayed() {
+		return isElementDisplayed(HomePageUI.LOGIN_BUTTON);
+	}
+	
 	public HeaderMyAccountPO clickToMyAccountHeader() {
 		waitToElementVisible(HomePageUI.MY_ACCOUNT_BUTTON);
 		clickToElement(HomePageUI.MY_ACCOUNT_BUTTON);

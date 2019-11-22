@@ -2,7 +2,9 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.FooterShoppingCartPO;
 import pageObjects.HeaderMyAccountPO;
+import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -23,5 +25,13 @@ public class PageGeneratorManager {
 	
 	public static HeaderMyAccountPO getHeaderMyAccountPage(WebDriver driver) {
 		return new HeaderMyAccountPO(driver);
+	}
+	
+	public static HeaderWishListPO getHeaderWishListPage(WebDriver driver) {
+		return new HeaderWishListPO(driver);
+	}
+	
+	public static FooterShoppingCartPO getFooterShoppingCartPage(WebDriver driver) {
+		return new FooterShoppingCartPO(driver);
 	}
 }
