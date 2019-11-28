@@ -91,7 +91,6 @@ public class RegisterPageObject extends AbstractPage{
 	
 	public boolean isErrorMessageContains(String fieldValue, String expectedText) {
 		String errorMsg = getTextElement(RegisterPageUI.ERROR_MESSAGEE_LABELS_CLASS(fieldValue));
-		System.out.println(errorMsg);
 		boolean errorMsgEqual = errorMsg.contains(expectedText);
 		return errorMsgEqual;
 	}

@@ -50,7 +50,6 @@ public class FE_01_Register {
 //		driver.manage().window().maximize();
 //		email = "tamnguyen_" + abstractPage.randomNumber() + "@gmail.com";
 //		password = "123123";
-		
 
 		String rootFolder = System.getProperty("user.dir");
 		switch (browserName) {
@@ -80,10 +79,9 @@ public class FE_01_Register {
 			System.out.println("Please input your browser name!");
 			break;
 		}
-		System.out.println(driver.toString());
 		abstractPage = new AbstractPage(driver);
 		driver.get("https://demo.nopcommerce.com/");
-		
+
 		email = "tamnguyen_" + abstractPage.randomNumber() + "@gmail.com";
 		password = "123123";
 	}
@@ -131,7 +129,7 @@ public class FE_01_Register {
 
 		assertTrue(registerPage.isErrorMessageOnTopDisplayed());
 	}
-	
+
 	@Test
 	public void TC_04_PasswordLesser6Characters() {
 		abstractPage.sleepInSecond(1);
@@ -143,7 +141,7 @@ public class FE_01_Register {
 		abstractPage.sleepInSecond(1);
 		assertTrue(registerPage.isErrorMessageContains("field-validation", "must have at least 6 characters"));
 	}
-	
+
 	@Test
 	public void TC_05_ConfirmPasswordNotMatched() {
 		abstractPage.sleepInSecond(1);
@@ -152,10 +150,10 @@ public class FE_01_Register {
 		registerPage.inputToEmailTextBox("tamqada@gmail.com");
 		registerPage.inputToPasswordTextBox(password);
 		registerPage.inputToConfirmPasswordTextBox("123");
-		
+
 		assertTrue(registerPage.isErrorMessageDisplayed("ConfirmPassword"));
 	}
-	
+
 	@Test
 	public void TC_06_RegisterWithValidInfo() {
 		abstractPage.sleepInSecond(1);
@@ -166,14 +164,15 @@ public class FE_01_Register {
 		registerPage.inputToPasswordTextBox(password);
 		registerPage.inputToConfirmPasswordTextBox(password);
 		registerPage.clickToRegisterButton();
-		
+
 		assertTrue(registerPage.isResultMatched("Your registration completed"));
 	}
-	
+
 	@Test
 	public void TC_07_LogOUt() {
 		homePage.clickToSignOutButton();
-		abstractPage.sleepInSecond(1);
+		homePage = PageGeneratorManager.getHomePage(driver);
+		abstractPage.sleepInSecond(2);
 		assertTrue(homePage.isLoginLinkDisplayed());
 	}
 }

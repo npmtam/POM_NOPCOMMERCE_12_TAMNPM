@@ -1,26 +1,31 @@
 package com.nopcommerce.account;
 
 import static org.testng.Assert.assertTrue;
-import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
+import pageObjects.FooterShoppingCartPO;
+import pageObjects.HeaderMyAccountPO;
+import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Topic_03_Page_Object_Pattern {
+public class Topic_08_DynamicLocator_and_RestParamater {
 	WebDriver driver;
 	Select select;
 	JavascriptExecutor jsExecutor;
@@ -32,9 +37,14 @@ public class Topic_03_Page_Object_Pattern {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-
+	private HeaderMyAccountPO headerMyAccountPage;
+	private HeaderWishListPO headerWishListPage;
+	private FooterShoppingCartPO footerShoppingCartPage;
+	
+	
+//	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass() {	
 		System.setProperty("webdriver.chrome.driver", ".\\libaries\\chromedriver.exe");
 		driver = new ChromeDriver();
 		abstractPage = new AbstractPage(driver);
@@ -46,12 +56,12 @@ public class Topic_03_Page_Object_Pattern {
 		
 	}
 
-	@Test
+//	@Test
 	public void TC_01_Register() throws InterruptedException {
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
 		abstractPage.sleepInSecond(1);
 		registerPage.selectMaleGenderCheckBox();
 		registerPage.inputToFirstNameTextBox("Tam");
@@ -74,19 +84,30 @@ public class Topic_03_Page_Object_Pattern {
 	@Test
 	public void TC_02_Login() {
 		abstractPage.sleepInSecond(2);
-		homePage = new HomePageObject(driver);
-		homePage.clickToSignOutButton();
-		abstractPage.sleepInSecond(2);
+		homePage = PageGeneratorManager.getHomePage(driver);
+//		homePage.clickToSignOutButton();
+//		abstractPage.sleepInSecond(2);
 		homePage.clickToLoginLink();
 		abstractPage.sleepInSecond(1);
-		loginPage = new LoginPageObject(driver);
-		loginPage.inputToEmailTextBox(email);
-		loginPage.inputToPasswordButton(password);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
+		loginPage.inputToEmailTextBox("tamqada@gmail.com");
+		loginPage.inputToPasswordButton("123123");
 		
 		loginPage.clickToLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 		assertTrue(homePage.isMyAccountLinkDisplayed());
 	}
-
+	
+	@Test
+	public void TC_03_openMultiplePages() {
+		homePage.openMultiplePagesHeader("My account");
+		headerWishListPage = PageGeneratorManager.getHeaderWishListPage(driver);
+		
+		headerWishListPage.openMultiplePagesFooter("Shopping cart");
+		footerShoppingCartPage = PageGeneratorManager.getFooterShoppingCartPage(driver);
+		
+		
+		
+	}
 }

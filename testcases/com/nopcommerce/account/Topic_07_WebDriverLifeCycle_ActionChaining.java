@@ -87,7 +87,7 @@ public class Topic_07_WebDriverLifeCycle_ActionChaining {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToSignOutButton();
 		abstractPage.sleepInSecond(2);
-		homePage.clickToLoginButton();
+		homePage.clickToLoginLink();
 		abstractPage.sleepInSecond(1);
 		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputToEmailTextBox(email);
@@ -101,13 +101,10 @@ public class Topic_07_WebDriverLifeCycle_ActionChaining {
 	
 	@Test
 	public void TC_03_ActionChaining() {
-		headerMyAccountPage = homePage.openHeaderMyAccountPage();
+		headerMyAccountPage.openMultiplePagesHeader("My account");
 		abstractPage.sleepInSecond(1);
 		
-		headerWishListPage = homePage.openWishListPage();
-		abstractPage.sleepInSecond(1);
-		
-		footerShoppingCartPage = homePage.openFooterShoppingCartPage();
+		footerShoppingCartPage.openMultiplePagesFooter("Shopping cart");
 		abstractPage.sleepInSecond(1);
 	}
 }

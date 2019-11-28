@@ -7,41 +7,49 @@ import commons.PageGeneratorManager;
 import pageUIs.HomePageUI;
 
 public class HomePageObject extends AbstractPage {
-WebDriver driver;
+	WebDriver driver;
 
 	public HomePageObject(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 	}
-	
-	public RegisterPageObject clickToRegisterLink () {
-		waitToElementVisible(HomePageUI.REGISTER_BUTTON);
-		clickToElement(HomePageUI.REGISTER_BUTTON);
+
+	public RegisterPageObject clickToRegisterLink() {
+		waitToElementVisible(HomePageUI.HEADER_LINKS, "Register");
+		clickToElement(HomePageUI.HEADER_LINKS, "Register");
 		return PageGeneratorManager.getRegisterPage(driver);
 	}
-	
+
 	public HomePageObject clickToSignOutButton() {
-		waitToElementVisible(HomePageUI.SIGN_OUT_BUTTON);
-		clickToElement(HomePageUI.SIGN_OUT_BUTTON);
+		waitToElementVisible(HomePageUI.HEADER_LINKS, "Log out");
+		clickToElement(HomePageUI.HEADER_LINKS, "Log out");
 		return PageGeneratorManager.getHomePage(driver);
 	}
-	
-	public LoginPageObject clickToLoginButton() {
-		waitToElementVisible(HomePageUI.LOGIN_BUTTON);
-		clickToElement(HomePageUI.LOGIN_BUTTON);
+
+	public LoginPageObject clickToLoginLink() {
+		waitToElementVisible(HomePageUI.HEADER_LINKS, "Log in");
+		clickToElement(HomePageUI.HEADER_LINKS, "Log in");
 		return PageGeneratorManager.getLoginPage(driver);
 	}
+	
+	public HeaderMyAccountPO clickToHeaderMyAccountPage() {
+		waitToElementVisible(HomePageUI.HEADER_LINKS, "My account");
+		clickToElement(HomePageUI.HEADER_LINKS, "My account");
+		return PageGeneratorManager.getHeaderMyAccountPage(driver);
+	}
+	
+
 	public boolean isMyAccountLinkDisplayed() {
-		return isElementDisplayed(HomePageUI.MY_ACCOUNT_BUTTON);
+		return isElementDisplayed(HomePageUI.HEADER_LINKS, "My account");
 	}
-	
+
 	public boolean isLoginLinkDisplayed() {
-		return isElementDisplayed(HomePageUI.LOGIN_BUTTON);
+		return isElementDisplayed(HomePageUI.HEADER_LINKS, "Log in");
 	}
-	
+
 	public HeaderMyAccountPO clickToMyAccountHeader() {
-		waitToElementVisible(HomePageUI.MY_ACCOUNT_BUTTON);
-		clickToElement(HomePageUI.MY_ACCOUNT_BUTTON);
+		waitToElementVisible(HomePageUI.HEADER_LINKS, "My account");
+		clickToElement(HomePageUI.HEADER_LINKS, "My account");
 		return PageGeneratorManager.getHeaderMyAccountPage(driver);
 	}
 }

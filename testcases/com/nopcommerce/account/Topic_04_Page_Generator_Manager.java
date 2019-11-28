@@ -78,7 +78,7 @@ public class Topic_04_Page_Generator_Manager {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToSignOutButton();
 		abstractPage.sleepInSecond(2);
-		homePage.clickToLoginButton();
+		homePage.clickToLoginLink();
 		abstractPage.sleepInSecond(1);
 		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputToEmailTextBox(email);
