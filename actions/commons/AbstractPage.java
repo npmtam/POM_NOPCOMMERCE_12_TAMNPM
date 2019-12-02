@@ -111,11 +111,19 @@ public class AbstractPage {
 	public void sendKeyToElement(String locator, String textValue, String...values) {
 		 locator = String.format(locator, (Object[])values);
 		 element = driver.findElement(By.xpath(locator));
+		 element.clear();
 		 element.sendKeys(textValue);
 	}
 
 	public void selectItemInDropdown(String locator, String valueItem) {
 		select = new Select(driver.findElement(By.xpath(locator)));
+		select.selectByVisibleText(valueItem);
+	}
+	
+	public void selectItemInDropdown(String locator, String valueItem, String...valueField) {
+		locator = String.format(locator, (Object[])valueField);
+		element = driver.findElement(By.xpath(locator));
+		select = new Select(element);
 		select.selectByVisibleText(valueItem);
 	}
 

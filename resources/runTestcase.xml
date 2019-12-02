@@ -5,7 +5,7 @@
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class
-				name="com.nopcommerce.frontend.FE_01_Register" />
+				name="com.nopcommerce.account.Topic_05_Multiple_Browser_Factory_Pattern" />
 		</classes>
 	</test>
 
@@ -13,7 +13,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="com.nopcommerce.frontend.FE_01_Register" />
+				name="com.nopcommerce.account.Topic_05_Multiple_Browser_Factory_Pattern" />
 		</classes>
 	</test>
 
@@ -21,7 +21,7 @@
 		<parameter name="browser" value="chrome_headless" />
 		<classes>
 			<class
-				name="com.nopcommerce.frontend.FE_01_Register" />
+				name="com.nopcommerce.account.Topic_05_Multiple_Browser_Factory_Pattern" />
 		</classes>
 	</test>
 
@@ -29,7 +29,7 @@
 		<parameter name="browser" value="firefox_headless" />
 		<classes>
 			<class
-				name="com.nopcommerce.frontend.FE_01_Register" />
+				name="com.nopcommerce.account.Topic_05_Multiple_Browser_Factory_Pattern" />
 		</classes>
 	</test>
 

@@ -31,7 +31,6 @@ public class FE_02_Login {
 		driver.manage().window().maximize();
 		registerTestcasess = new FE_01_Register();
 		email = "tamqada@gmail.com";
-		
 	}
 //	@Test
 //	public void TC_01_LoginWithEmptyData() {
@@ -97,6 +96,7 @@ public class FE_02_Login {
 		loginPage.inputToEmailTextBox(email);
 		loginPage.inputToPasswordButton("123123");
 		loginPage.clickToLoginButton();
+		homePage = PageGeneratorManager.getHomePage(driver);
 		abstractPage.sleepInSecond(1);
 		assertTrue(loginPage.isHeaderLinksDisplayed("My account"));
 	}

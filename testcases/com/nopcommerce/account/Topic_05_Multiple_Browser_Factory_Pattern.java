@@ -17,13 +17,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractPage;
+import commons.AbstractTest;
 import commons.PageGeneratorManager;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Topic_05_Multiple_Browser_Factory_Pattern {
-	WebDriver driver;
+public class Topic_05_Multiple_Browser_Factory_Pattern extends AbstractTest {
+	private WebDriver driver;
 	Select select;
 	JavascriptExecutor jsExecutor;
 	WebDriverWait waitExplicit;
@@ -38,34 +39,37 @@ public class Topic_05_Multiple_Browser_Factory_Pattern {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {	
-		String rootFolder = System.getProperty("user.dir");
-		switch (browserName) {
-		case "firefox":
-			System.setProperty("webdriver.gecko.driver", rootFolder + "\\resources\\geckodriver.exe");
-			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, rootFolder + "\\FirefoxLogs.txt");
-			driver = new FirefoxDriver();
-			break;
-		case "firefox_headless":
-			System.setProperty("webdriver.gecko.driver", rootFolder + "\\resources\\geckodriver.exe");
-			FirefoxOptions options = new FirefoxOptions();
-			options.setHeadless(true);
-			driver = new FirefoxDriver(options);
-			break;
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver", rootFolder + "\\resources\\chromedriver.exe");
-			driver = new ChromeDriver();
-			break;
-		case "chrome_headless":
-			System.setProperty("webdriver.chrome.driver", rootFolder + "\\resources\\chromedriver.exe");
-			ChromeOptions options2 = new ChromeOptions();
-			options2.setHeadless(true);
-			driver = new ChromeDriver(options2);
-			break;
-		default:
-			System.out.println("Please input your browser name!");
-			break;
-		}
+//		String rootFolder = System.getProperty("user.dir");
+//		switch (browserName) {
+//		case "firefox":
+//			System.setProperty("webdriver.gecko.driver", rootFolder + "\\resources\\geckodriver.exe");
+//			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+//			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, rootFolder + "\\FirefoxLogs.txt");
+//			driver = new FirefoxDriver();
+//			break;
+//		case "firefox_headless":
+//			System.setProperty("webdriver.gecko.driver", rootFolder + "\\resources\\geckodriver.exe");
+//			FirefoxOptions options = new FirefoxOptions();
+//			options.setHeadless(true);
+//			driver = new FirefoxDriver(options);
+//			break;
+//		case "chrome":
+//			System.setProperty("webdriver.chrome.driver", rootFolder + "\\resources\\chromedriver.exe");
+//			driver = new ChromeDriver();
+//			break;
+//		case "chrome_headless":
+//			System.setProperty("webdriver.chrome.driver", rootFolder + "\\resources\\chromedriver.exe");
+//			ChromeOptions options2 = new ChromeOptions();
+//			options2.setHeadless(true);
+//			driver = new ChromeDriver(options2);
+//			break;
+//		default:
+//			System.out.println("Please input your browser name!");
+//			break;
+//		}
+		
+		driver = openMultiBrowsers(browserName);
+		
 		System.out.println(driver.toString());
 		abstractPage = new AbstractPage(driver);
 		driver.get("https://demo.nopcommerce.com/");
