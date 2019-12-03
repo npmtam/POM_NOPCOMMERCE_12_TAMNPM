@@ -335,6 +335,15 @@ public class AbstractPage {
 		Random random = new Random();
 		return random.nextInt();
 	}
+	
+	public boolean isElementPresentInDOM(String locator) {
+		elements = driver.findElements(By.xpath(locator));
+		if (elements.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 //	// Header and footer navigations
 //	public HeaderMyAccountPO openHeaderMyAccountPage() {

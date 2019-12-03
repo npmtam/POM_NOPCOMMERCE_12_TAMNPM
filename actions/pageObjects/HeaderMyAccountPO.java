@@ -22,12 +22,12 @@ WebDriver driver;
 		clickToElement(MyAccountPageUI.GENDER_RADIOBUTTON, gender);
 	}
 	
-	public void inputToCustomerInfoTextboxs(String textValue, String fieldID) {
+	public void inputToCustomerInfoTextboxs(String fieldID, String textValue) {
 		waitToElementVisible(MyAccountPageUI.CUSTOMER_TEXTBOXS, fieldID);
 		sendKeyToElement(MyAccountPageUI.CUSTOMER_TEXTBOXS, textValue, fieldID);
 	}
 	
-	public void selectBirdtDateDropDownList(String valueItem, String valueField) {
+	public void selectBirdtDateDropDownList(String valueField, String valueItem) {
 		waitToElementVisible(MyAccountPageUI.BIRTHDATE_DROPDOWNLIST, valueField);
 		selectItemInDropdown(MyAccountPageUI.BIRTHDATE_DROPDOWNLIST, valueItem, valueField);
 	}
@@ -52,7 +52,11 @@ WebDriver driver;
 	}
 	
 	public void selectCountryDropdownList(String countryValue) {
-		waitToElementVisible(MyAccountPageUI.ADDRESS_TEXTBOXES, "CountryId");
-		selectItemInDropdown(MyAccountPageUI.ADDRESS_TEXTBOXES, countryValue, "CountryId");
+		waitToElementVisible(MyAccountPageUI.COUNTRY_DROPDOWN_LIST);
+		selectItemInDropdown(MyAccountPageUI.COUNTRY_DROPDOWN_LIST, countryValue);
+	}
+	
+	public boolean isErrorMessagePresentInDOM() {
+		return isElementPresentInDOM(MyAccountPageUI.ERROR_MESSAGE);
 	}
 }

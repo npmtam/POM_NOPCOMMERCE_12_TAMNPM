@@ -1,5 +1,6 @@
 package com.nopcommerce.frontend;
 
+import static org.junit.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -20,8 +21,9 @@ public class FE_03_MyAccount {
 	private HomePageObject homePage;
 	private AbstractPage abstractPage;
 	private LoginPageObject loginPage;
-	private HeaderMyAccountPO myaccountPage; 
+	private HeaderMyAccountPO myAccountPage; 
 	String email;
+	String emailUpdate;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -31,7 +33,8 @@ public class FE_03_MyAccount {
 			driver.get("https://demo.nopcommerce.com/");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			email = "tamqada@gmail.com";
+			email = "automation-testing@gmail.com";
+			emailUpdate = "tamqada@gmail.com";
 		}
 	
 	@Test
@@ -54,40 +57,43 @@ public class FE_03_MyAccount {
 	public void  TC_01_UpdateCustomerInfo() {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.openMultiplePagesHeader("My account");
-		myaccountPage = PageGeneratorManager.getHeaderMyAccountPage(driver);
-		assertTrue(myaccountPage.isCurrentURLContains("customer/info"));
+		myAccountPage = PageGeneratorManager.getHeaderMyAccountPage(driver);
+		assertTrue(myAccountPage.isCurrentURLContains("customer/info"));
 		
 		abstractPage.sleepInSecond(1);
-		myaccountPage.clickToGenderRadioButton("female");
-		myaccountPage.inputToCustomerInfoTextboxs("Automation", "FirstName");
-		myaccountPage.inputToCustomerInfoTextboxs("FC", "LastName");
-		myaccountPage.selectBirdtDateDropDownList("1", "Day");
-		myaccountPage.selectBirdtDateDropDownList("January", "Month");
-		myaccountPage.selectBirdtDateDropDownList("1999", "Year");
-		myaccountPage.inputToCustomerInfoTextboxs("automationfc.vn@gmail.com", "Email");
-		myaccountPage.inputToCustomerInfoTextboxs("Automation FC", "Company");
-		myaccountPage.clickToSaveButton();
+		myAccountPage.clickToGenderRadioButton("female");
+		myAccountPage.inputToCustomerInfoTextboxs("FirstName", "Automation");
+		myAccountPage.inputToCustomerInfoTextboxs("LastName", "FC");
+		myAccountPage.selectBirdtDateDropDownList("Day", "1");
+		myAccountPage.selectBirdtDateDropDownList("Month", "January");
+		myAccountPage.selectBirdtDateDropDownList("Year", "1999");
+		myAccountPage.inputToCustomerInfoTextboxs("Email", emailUpdate);
+		myAccountPage.inputToCustomerInfoTextboxs("Company", "Automation FC");
+		myAccountPage.clickToSaveButton();
+		assertFalse(myAccountPage.isErrorMessagePresentInDOM());
+		
 	}
 	
 	@Test
 	public void TC_02_UpdateAddress() {
 		abstractPage.sleepInSecond(1);
-		myaccountPage.clickToAddressMenu();
+		myAccountPage.clickToAddressMenu();
 		abstractPage.sleepInSecond(1);
-		assertTrue(myaccountPage.isCurrentURLContains("customer/addresses"));
+		assertTrue(myAccountPage.isCurrentURLContains("customer/addresses"));
 		
-		myaccountPage.clickToAddNewButton();
-		myaccountPage.inputToAddressTextboxes("FirstName", "Automation");
-		myaccountPage.inputToAddressTextboxes("LastName", "FC");
-		myaccountPage.inputToAddressTextboxes("Email", "automationfc.vn@gmail.com");
+		myAccountPage.clickToAddNewButton();
+		myAccountPage.inputToAddressTextboxes("FirstName", "Automation");
+		myAccountPage.inputToAddressTextboxes("LastName", "FC");
+		myAccountPage.inputToAddressTextboxes("Email", "automationfc.vn@gmail.com");
+		myAccountPage.inputToAddressTextboxes("Company", "Automation FC");
 		
-		myaccountPage.selectCountryDropdownList("Viet Nam");
-		myaccountPage.inputToAddressTextboxes("City", "Da Nang");
-		myaccountPage.inputToAddressTextboxes("Address1", "123/04 Le Lai");
-		myaccountPage.inputToAddressTextboxes("Address2", "234/05 Hai Phong");
-		myaccountPage.inputToAddressTextboxes("ZipPostalCode", "550000");
-		myaccountPage.inputToAddressTextboxes("PhoneNumber", "0123456789");
-		myaccountPage.inputToAddressTextboxes("FaxNumber", "0987654321");
+		myAccountPage.selectCountryDropdownList("Viet Nam");
+		myAccountPage.inputToAddressTextboxes("City", "Da Nang");
+		myAccountPage.inputToAddressTextboxes("Address1", "123/04 Le Lai");
+		myAccountPage.inputToAddressTextboxes("Address2", "234/05 Hai Phong");
+		myAccountPage.inputToAddressTextboxes("ZipPostalCode", "550000");
+		myAccountPage.inputToAddressTextboxes("PhoneNumber", "0123456789");
+		myAccountPage.inputToAddressTextboxes("FaxNumber", "0987654321");
 		
 		
 		
