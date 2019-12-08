@@ -310,7 +310,21 @@ public class AbstractPage {
 		element = driver.findElement(By.xpath(locator));
 		String actualText = element.getText();
 		return actualText.equals(expectedResult);
+	}
+	
+	public boolean isElementEquals(String locator, String expectedResult, String...values) {
+		locator = String.format(locator, (Object[])values);
+		element = driver.findElement(By.xpath(locator));
+		String actualText = element.getText();
+		return actualText.equals(expectedResult);
+	}
 
+	@SuppressWarnings("unlikely-arg-type")
+	public boolean isElementSplitEquals(String locator, String[] expectedResult, String...values) {
+		locator = String.format(locator, (Object[])values);
+		element = driver.findElement(By.xpath(locator));
+		String actualText = element.getText();
+		return actualText.equals(expectedResult);
 	}
 	
 	public boolean isElementContainsText(String locator, String textContains) {

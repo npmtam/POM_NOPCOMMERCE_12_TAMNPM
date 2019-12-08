@@ -36,11 +36,6 @@ WebDriver driver;
 		clickToElement(MyAccountPageUI.SAVE_BUTTON);
 	}
 	
-	public void clickToAddressMenu() {
-		waitToElementVisible(MyAccountPageUI.MENU_LINKS, "addresses");
-		clickToElement(MyAccountPageUI.MENU_LINKS, "addresses");
-	}
-	
 	public void clickToAddNewButton() {
 		waitToElementVisible(MyAccountPageUI.ADD_NEW_BUTTON);
 		clickToElement(MyAccountPageUI.ADD_NEW_BUTTON);
@@ -59,4 +54,40 @@ WebDriver driver;
 	public boolean isErrorMessagePresentInDOM() {
 		return isElementPresentInDOM(MyAccountPageUI.ERROR_MESSAGE);
 	}
+	
+	public boolean isNewAddressAddedEquals(String infoValue, String expectedResult) {
+		waitToElementVisible(MyAccountPageUI.NEW_ADDRESS_INFOS, infoValue);
+		String actualText = getTextElement(MyAccountPageUI.NEW_ADDRESS_INFOS, infoValue);
+		String[] expectedText = actualText.split("\\s");
+		String emailAddress = expectedText[1];
+		return emailAddress.equals(expectedResult);
+	}
+	
+	public boolean isNewAddressCityAndZipEquals(String infoValue, String expectedResult) {
+		waitToElementVisible(MyAccountPageUI.NEW_ADDRESS_INFOS, infoValue);
+		String actualText = getTextElement(MyAccountPageUI.NEW_ADDRESS_INFOS, infoValue);
+		return actualText.equals(expectedResult);
+	}
+	
+	public void clickToMyAccountLinks(String fieldValue) {
+		waitToElementVisible(MyAccountPageUI.MENU_LINKS, fieldValue);
+		clickToElement(MyAccountPageUI.MENU_LINKS, fieldValue);
+	}
+	
+	public void inputToChangePasswordTextboxes(String fieldValue, String textValue) {
+		waitToElementVisible(MyAccountPageUI.CHANGE_PASSWORD_TEXTBOXES, fieldValue);
+		sendKeyToElement(MyAccountPageUI.CHANGE_PASSWORD_TEXTBOXES, textValue, fieldValue);
+	}
+	
+	public void clickToChangePasswordButton() {
+		waitToElementVisible(MyAccountPageUI.CHANGE_PASSWORD_BUTTON);
+		clickToElement(MyAccountPageUI.CHANGE_PASSWORD_BUTTON);
+	}
+	
+	public boolean isChangePasswordResultEquals(String expectedResult) {
+		waitToElementVisible(MyAccountPageUI.CHANGE_PASSWORD_RESULT_LABEL);
+		String actualText = getTextElement(MyAccountPageUI.CHANGE_PASSWORD_RESULT_LABEL);
+		return actualText.equals(expectedResult);
+	}
+	
 }

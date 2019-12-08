@@ -24,6 +24,12 @@ public class FE_03_MyAccount {
 	private HeaderMyAccountPO myAccountPage; 
 	String email;
 	String emailUpdate;
+	String password;
+	String passwordUpdate;
+	String newAddressEmail;
+	String newAddressCity;
+	String newAddressZipCode;
+	String newAddressVeirifyCityAndZipCode;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -35,6 +41,12 @@ public class FE_03_MyAccount {
 			driver.manage().window().maximize();
 			email = "automation-testing@gmail.com";
 			emailUpdate = "tamqada@gmail.com";
+			newAddressEmail = "automationfc.vn@gmail.com";
+			newAddressCity = "Da Nang";
+			newAddressZipCode = "550000";
+			newAddressVeirifyCityAndZipCode = newAddressCity + ", " + newAddressZipCode;
+			password = "111111";
+			passwordUpdate = "222222";
 		}
 	
 	@Test
@@ -46,7 +58,7 @@ public class FE_03_MyAccount {
 		abstractPage.sleepInSecond(1);
 		abstractPage.sleepInSecond(1);
 		loginPage.inputToEmailTextBox(email);
-		loginPage.inputToPasswordButton("123123");
+		loginPage.inputToPasswordButton(password);
 		loginPage.clickToLoginButton();
 		homePage = PageGeneratorManager.getHomePage(driver);
 		abstractPage.sleepInSecond(1);
@@ -67,7 +79,7 @@ public class FE_03_MyAccount {
 		myAccountPage.selectBirdtDateDropDownList("Day", "1");
 		myAccountPage.selectBirdtDateDropDownList("Month", "January");
 		myAccountPage.selectBirdtDateDropDownList("Year", "1999");
-		myAccountPage.inputToCustomerInfoTextboxs("Email", emailUpdate);
+//		myAccountPage.inputToCustomerInfoTextboxs("Email", emailUpdate);
 		myAccountPage.inputToCustomerInfoTextboxs("Company", "Automation FC");
 		myAccountPage.clickToSaveButton();
 		assertFalse(myAccountPage.isErrorMessagePresentInDOM());
@@ -77,25 +89,45 @@ public class FE_03_MyAccount {
 	@Test
 	public void TC_02_UpdateAddress() {
 		abstractPage.sleepInSecond(1);
-		myAccountPage.clickToAddressMenu();
+		myAccountPage.clickToMyAccountLinks("addresses");
 		abstractPage.sleepInSecond(1);
 		assertTrue(myAccountPage.isCurrentURLContains("customer/addresses"));
 		
 		myAccountPage.clickToAddNewButton();
+		abstractPage.sleepInSecond(1);
 		myAccountPage.inputToAddressTextboxes("FirstName", "Automation");
 		myAccountPage.inputToAddressTextboxes("LastName", "FC");
-		myAccountPage.inputToAddressTextboxes("Email", "automationfc.vn@gmail.com");
+		myAccountPage.inputToAddressTextboxes("Email", newAddressEmail);
 		myAccountPage.inputToAddressTextboxes("Company", "Automation FC");
 		
 		myAccountPage.selectCountryDropdownList("Viet Nam");
-		myAccountPage.inputToAddressTextboxes("City", "Da Nang");
+		myAccountPage.inputToAddressTextboxes("City", newAddressCity);
 		myAccountPage.inputToAddressTextboxes("Address1", "123/04 Le Lai");
 		myAccountPage.inputToAddressTextboxes("Address2", "234/05 Hai Phong");
-		myAccountPage.inputToAddressTextboxes("ZipPostalCode", "550000");
+		myAccountPage.inputToAddressTextboxes("ZipPostalCode", newAddressZipCode);
 		myAccountPage.inputToAddressTextboxes("PhoneNumber", "0123456789");
 		myAccountPage.inputToAddressTextboxes("FaxNumber", "0987654321");
+		myAccountPage.clickToSaveButton();
 		
-		
-		
+		abstractPage.sleepInSecond(1);
+		assertTrue(myAccountPage.isNewAddressAddedEquals("email", newAddressEmail));
+		assertTrue(myAccountPage.isNewAddressCityAndZipEquals("city-state-zip", newAddressVeirifyCityAndZipCode));
 	}
+	
+	@Test
+	public void TC_03_ChangePassword() {
+		myAccountPage.clickToMyAccountLinks("changepassword");
+		abstractPage.sleepInSecond(1);
+		myAccountPage.inputToChangePasswordTextboxes("OldPassword", password);
+		myAccountPage.inputToChangePasswordTextboxes("NewPassword", passwordUpdate);
+		myAccountPage.inputToChangePasswordTextboxes("ConfirmNewPassword", passwordUpdate);
+		myAccountPage.clickToChangePasswordButton();
+		
+		assertTrue(myAccountPage.isChangePasswordResultEquals("Password was changed"));
+		
+		myAccountPage.clickToMyAccountLinks("logout");
+	}
+	
+	
+	
 }
