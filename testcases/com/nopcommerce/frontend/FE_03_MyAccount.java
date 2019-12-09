@@ -45,8 +45,8 @@ public class FE_03_MyAccount {
 			newAddressCity = "Da Nang";
 			newAddressZipCode = "550000";
 			newAddressVeirifyCityAndZipCode = newAddressCity + ", " + newAddressZipCode;
-			password = "111111";
-			passwordUpdate = "222222";
+			password = "123321";
+			passwordUpdate = "666666";
 		}
 	
 	@Test
@@ -125,9 +125,24 @@ public class FE_03_MyAccount {
 		
 		assertTrue(myAccountPage.isChangePasswordResultEquals("Password was changed"));
 		
-		myAccountPage.clickToMyAccountLinks("logout");
+		abstractPage.sleepInSecond(1);
+		myAccountPage.openMultiplePagesHeader("Log out");
+		abstractPage.sleepInSecond(1);
+		
+		myAccountPage.openMultiplePagesHeader("Log in");
+		loginPage = PageGeneratorManager.getLoginPage(driver);
+		
+		loginPage.inputToEmailTextBox(email);
+		loginPage.inputToPasswordButton("1111111");
+		loginPage.clickToLoginButton();
+		assertTrue(loginPage.isErrorMessageContains("The credentials provided are incorrect"));
+		
+		loginPage.inputToEmailTextBox(email);
+		loginPage.inputToPasswordButton(passwordUpdate);
+		loginPage.clickToLoginButton();
+		homePage = PageGeneratorManager.getHomePage(driver);
+		abstractPage.sleepInSecond(1);
+		assertTrue(loginPage.isHeaderLinksDisplayed("My account"));
 	}
-	
-	
 	
 }
