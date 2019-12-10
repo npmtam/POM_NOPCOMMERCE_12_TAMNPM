@@ -2,6 +2,7 @@ package pageUIs;
 
 public class MyAccountPageUI {
 	public static final String MENU_LINKS = "//div[@class='listbox']//a[contains(@href, '%s')]";
+	public static final String MY_ACCOUNT_PAGE_TITLE = "//div[@class='page-title']/h1";
 	
 	public static final String GENDER_RADIOBUTTON = "//input[@id='gender-%s']";
 	public static final String CUSTOMER_TEXTBOXS = "//input[@id='%s']";

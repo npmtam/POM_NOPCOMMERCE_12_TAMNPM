@@ -17,6 +17,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractPage;
+import commons.AbstractTest;
 import commons.PageGeneratorManager;
 import pageObjects.FooterShoppingCartPO;
 import pageObjects.HeaderMyAccountPO;
@@ -25,7 +26,7 @@ import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Topic_11_Assert_and_Verify {
+public class Topic_11_Assert_and_Verify extends AbstractTest {
 	WebDriver driver;
 	Select select;
 	JavascriptExecutor jsExecutor;
@@ -42,15 +43,10 @@ public class Topic_11_Assert_and_Verify {
 	private FooterShoppingCartPO footerShoppingCartPage;
 	
 	
-//	@Parameters("browser")
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {	
-		System.setProperty("webdriver.chrome.driver", ".\\libaries\\chromedriver.exe");
-		driver = new ChromeDriver();
-		abstractPage = new AbstractPage(driver);
-		driver.get("https://demo.nopcommerce.com/");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+	public void beforeClass(String browserName) {	
+		driver =  openMultiBrowsers(browserName);
 		email = "tamnguyen_" + abstractPage.randomNumber() + "@gmail.com";
 		password = "123123";
 		
@@ -106,8 +102,6 @@ public class Topic_11_Assert_and_Verify {
 		
 		headerWishListPage.openMultiplePagesFooter("Shopping cart");
 		footerShoppingCartPage = PageGeneratorManager.getFooterShoppingCartPage(driver);
-		
-		
 		
 	}
 }

@@ -7,6 +7,7 @@ import pageObjects.HeaderMyAccountPO;
 import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.ProductDetailsPO;
 import pageObjects.RegisterPageObject;
 
 public class PageGeneratorManager {
@@ -33,5 +34,9 @@ public class PageGeneratorManager {
 
 	public static FooterShoppingCartPO getFooterShoppingCartPage(WebDriver driver) {
 		return new FooterShoppingCartPO(driver);
+	}
+	
+	public static ProductDetailsPO getProductDetailsPage(WebDriver driver) {
+		return new ProductDetailsPO(driver);
 	}
 }

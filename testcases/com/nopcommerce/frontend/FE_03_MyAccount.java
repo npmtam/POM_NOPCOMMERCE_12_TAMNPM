@@ -15,6 +15,7 @@ import commons.PageGeneratorManager;
 import pageObjects.HeaderMyAccountPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.ProductDetailsPO;
 
 public class FE_03_MyAccount {
 	WebDriver driver;
@@ -22,6 +23,7 @@ public class FE_03_MyAccount {
 	private AbstractPage abstractPage;
 	private LoginPageObject loginPage;
 	private HeaderMyAccountPO myAccountPage; 
+	private ProductDetailsPO productPage;
 	String email;
 	String emailUpdate;
 	String password;
@@ -45,8 +47,8 @@ public class FE_03_MyAccount {
 			newAddressCity = "Da Nang";
 			newAddressZipCode = "550000";
 			newAddressVeirifyCityAndZipCode = newAddressCity + ", " + newAddressZipCode;
-			password = "123321";
-			passwordUpdate = "666666";
+			passwordUpdate = "automation";
+			password = "098765";
 		}
 	
 	@Test
@@ -83,7 +85,6 @@ public class FE_03_MyAccount {
 		myAccountPage.inputToCustomerInfoTextboxs("Company", "Automation FC");
 		myAccountPage.clickToSaveButton();
 		assertFalse(myAccountPage.isErrorMessagePresentInDOM());
-		
 	}
 	
 	@Test
@@ -143,6 +144,28 @@ public class FE_03_MyAccount {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		abstractPage.sleepInSecond(1);
 		assertTrue(loginPage.isHeaderLinksDisplayed("My account"));
+	}
+	
+	@Test
+	public void TC_04_MyProductReview() {
+		homePage.clickToProductTitle("Apple MacBook");
+		productPage = PageGeneratorManager.getProductDetailsPage(driver);
+		productPage.clickToAddReviewLink();
+		assertTrue(productPage.isProductReviewTitleDisplayed());
+		productPage.inputToReviewTitleTextbox("Nice one");
+		productPage.inputToReviewTextTextArea("Nice one with MacOS. beatiful and very slim");
+		productPage.clickToSubmitReviewButton();
+		assertTrue(productPage.isAddReviewResultContains("successfully added"));
+		
+		
+		
+		homePage.openMultiplePagesHeader("My account");
+		myAccountPage = PageGeneratorManager.getHeaderMyAccountPage(driver);
+		
+		
+		myAccountPage.clickToMyAccountLinks("productreviews");
+		assertTrue(myAccountPage.isPageTitleContains("My product reviews"));
+		
 	}
 	
 }

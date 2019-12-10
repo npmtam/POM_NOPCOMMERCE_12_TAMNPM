@@ -90,4 +90,10 @@ WebDriver driver;
 		return actualText.equals(expectedResult);
 	}
 	
+	public boolean isPageTitleContains(String expectedText) {
+		waitToElementVisible(MyAccountPageUI.MY_ACCOUNT_PAGE_TITLE);
+		String actualText = getTextElement(MyAccountPageUI.MY_ACCOUNT_PAGE_TITLE);
+		return actualText.contains(expectedText);
+	}
+	
 }

@@ -1,5 +1,7 @@
 package commons;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
@@ -125,6 +127,9 @@ public class AbstractTest {
 			System.out.println("Please input your browser name!");
 			break;
 		}
+		driver.get("https://demo.nopcommerce.com/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 		return driver;
 	}
 	
