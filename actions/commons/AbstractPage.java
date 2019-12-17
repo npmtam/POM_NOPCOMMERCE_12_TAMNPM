@@ -405,4 +405,9 @@ public class AbstractPage {
 		clickToElement(AbstractPageUI.FOOTER_LINKS, pageName);
 	}
 	
+	public boolean isCurrentURLContains(String valueContains) {
+		String currentURL = getCurrentPageURL();
+		return currentURL.contains(valueContains);
+	}
+	
 }

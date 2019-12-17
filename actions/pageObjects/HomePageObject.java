@@ -37,7 +37,6 @@ public class HomePageObject extends AbstractPage {
 		clickToElement(HomePageUI.HEADER_LINKS, "My account");
 		return PageGeneratorManager.getHeaderMyAccountPage(driver);
 	}
-	
 
 	public boolean isMyAccountLinkDisplayed() {
 		return isElementDisplayed(HomePageUI.HEADER_LINKS, "My account");
@@ -57,4 +56,5 @@ public class HomePageObject extends AbstractPage {
 		waitToElementVisible(HomePageUI.PRODUCT_TITLE, productTitle);
 		clickToElement(HomePageUI.PRODUCT_TITLE, productTitle);
 	}
+	
 }

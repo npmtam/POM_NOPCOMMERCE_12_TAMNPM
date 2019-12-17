@@ -9,6 +9,7 @@ import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.ProductDetailsPO;
 import pageObjects.RegisterPageObject;
+import pageObjects.SearchPO;
 
 public class PageGeneratorManager {
 
@@ -38,5 +39,9 @@ public class PageGeneratorManager {
 	
 	public static ProductDetailsPO getProductDetailsPage(WebDriver driver) {
 		return new ProductDetailsPO(driver);
+	}
+	
+	public static SearchPO getSearchPage(WebDriver driver) {
+		return new SearchPO(driver);
 	}
 }
