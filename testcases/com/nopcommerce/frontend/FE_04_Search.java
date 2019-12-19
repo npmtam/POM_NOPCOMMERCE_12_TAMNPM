@@ -78,6 +78,7 @@ public class FE_04_Search extends AbstractTest {
 	
 	@Test
 	public void TC_03_SearchProductName() {
+		abstractPage.sleepInSecond(1);
 		log.info("Search - TC03 - Step 01: Search product name");
 		searchPage.inputToSearchTextbox("Lenovo");
 		
@@ -85,8 +86,149 @@ public class FE_04_Search extends AbstractTest {
 		searchPage.clickToSearchButton();
 		
 		log.info("Search - TC03 - Verify 2 products displayed");
+		verifyEquals(searchPage.countProductInSearchResult(), 2);
 		verifyTrue(searchPage.isSearchResultDisplayedProduct("IdeaCentre 600 All-in-One PC"));
 		verifyTrue(searchPage.isSearchResultDisplayedProduct("Thinkpad X1 Carbon"));
+	}
+	
+	@Test
+	public void TC_04_SearchProductNameSpecific() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC 04 - Step 01: Search with specific product name");
+		searchPage.inputToSearchTextbox("Thinkpad X1 Carbon");
 		
+		log.info("Search - TC04 - Step 02: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC04 - Step 03: Verify 1 product displayed");
+		verifyEquals(searchPage.countProductInSearchResult(), 1);
+		verifyTrue(searchPage.isSearchResultDisplayedProduct("Thinkpad X1 Carbon"));
+	}
+	
+	@Test
+	public void TC_05_AdvanceSearchParentCategories() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC05 - Step 01: Search parent categories");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC05 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC05 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC05 - Step 04: Uncheck checkbox auto search sub categories");
+		searchPage.uncheckAutoSearchSubCategories();
+		
+		log.info("Search - TC05 - Step 05: Click to search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC05 - Step 06: Verify error message");
+		verifyTrue(searchPage.isErrorMessageEquals("no-result", "No products were found that matched your criteria."));
+	}
+	
+	@Test
+	public void TC_06_AdvanceSearchSubCategories() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC06 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC06 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC06 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC06 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC06 - Step 05: Click save button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC06 - Step 05: Verify the result");
+		verifyEquals(searchPage.countProductInSearchResult(), 1);
+		verifyTrue(searchPage.isSearchResultDisplayedProduct("Apple MacBook Pro 13-inch"));
+	}
+	
+	@Test
+	public void TC_07_AdvanceSearchIncorrectManufacturer() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC07 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC07 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC07 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC07 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC07 - Step 05: Select Manufacturer");
+		searchPage.selectDropdown("Manufacturer", "HP");
+		
+		log.info("Search - TC07 - Step 06: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC07 - Step 07: Verify error message");
+		verifyTrue(searchPage.isErrorMessageEquals("no-result", "No products were found that matched your criteria."));
+	}
+	
+	@Test
+	public void TC_08_AdvanceSearchCorrectManufacturer() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC08 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC08 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC08 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC08 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC08 - Step 05: Select Manufacturer");
+		searchPage.selectDropdown("Manufacturer", "Apple");
+		
+		log.info("Search - TC08 - Step 06: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC08 - Step 07: Verify search result");
+		abstractPage.sleepInSecond(1);
+		verifyEquals(searchPage.countProductInSearchResult(), 1);
+		verifyTrue(searchPage.isSearchResultDisplayedProduct("Apple MacBook Pro 13-inch"));
+	}
+	
+	@Test
+	public void TC_09_AdvanceSearchDuringPriceRange() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC09 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC09 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC09 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC09 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC09 - Step 05: Select Manufacturer");
+		searchPage.selectDropdown("Manufacturer", "Apple");
+		
+		log.info("Search - TC09 - Step 06: Input price range");
+		searchPage.inputToPriceRangeTextboxes("price-from", "1000");
+		searchPage.inputToPriceRangeTextboxes("price-to", "2000");
+		
+		log.info("Search - TC09 - Step 07: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC09 - Step 08: Verify search result");
+		verifyEquals(searchPage.countProductInSearchResult(), 1);
+		verifyTrue(searchPage.isSearchResultDisplayedProduct("Apple MacBook Pro 13-inch"));
 	}
 }

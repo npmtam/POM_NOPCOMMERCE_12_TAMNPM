@@ -410,4 +410,9 @@ public class AbstractPage {
 		return currentURL.contains(valueContains);
 	}
 	
+	public int countElements(String locators) {
+		elements = driver.findElements(By.xpath(locators));
+		return elements.size();
+	}
+	
 }
