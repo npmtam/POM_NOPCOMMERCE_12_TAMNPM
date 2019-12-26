@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import commons.AbstractPage;
 import commons.AbstractTest;
 import commons.PageGeneratorManager;
-import pageObjects.HeaderMyAccountPO;
+import pageObjects.MyAccountPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.ProductDetailsPO;
@@ -23,7 +23,7 @@ public class FE_03_MyAccount extends AbstractTest{
 	private HomePageObject homePage;
 	private AbstractPage abstractPage;
 	private LoginPageObject loginPage;
-	private HeaderMyAccountPO myAccountPage; 
+	private MyAccountPO myAccountPage; 
 	private ProductDetailsPO productPage;
 	String email;
 	String emailUpdate;

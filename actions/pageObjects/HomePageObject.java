@@ -32,7 +32,7 @@ public class HomePageObject extends AbstractPage {
 		return PageGeneratorManager.getLoginPage(driver);
 	}
 	
-	public HeaderMyAccountPO clickToHeaderMyAccountPage() {
+	public MyAccountPO clickToHeaderMyAccountPage() {
 		waitToElementVisible(HomePageUI.HEADER_LINKS, "My account");
 		clickToElement(HomePageUI.HEADER_LINKS, "My account");
 		return PageGeneratorManager.getHeaderMyAccountPage(driver);
@@ -46,7 +46,7 @@ public class HomePageObject extends AbstractPage {
 		return isElementDisplayed(HomePageUI.HEADER_LINKS, "Log in");
 	}
 
-	public HeaderMyAccountPO clickToMyAccountHeader() {
+	public MyAccountPO clickToMyAccountHeader() {
 		waitToElementVisible(HomePageUI.HEADER_LINKS, "My account");
 		clickToElement(HomePageUI.HEADER_LINKS, "My account");
 		return PageGeneratorManager.getHeaderMyAccountPage(driver);

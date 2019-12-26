@@ -1,0 +1,3 @@
+2019-12-26 23:47:16,199 INFO  com.nopcommerce.frontend.FE_05_Sort - Precondition - Select Notebooks from Computers menu
+2019-12-26 23:47:19,247 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 01: Select sort by: Name: A to Z
+2019-12-26 23:47:21,022 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 02: Verify the products is ordered by name A to Z

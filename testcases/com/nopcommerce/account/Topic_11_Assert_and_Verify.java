@@ -20,7 +20,7 @@ import commons.AbstractPage;
 import commons.AbstractTest;
 import commons.PageGeneratorManager;
 import pageObjects.FooterShoppingCartPO;
-import pageObjects.HeaderMyAccountPO;
+import pageObjects.MyAccountPO;
 import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
@@ -38,7 +38,7 @@ public class Topic_11_Assert_and_Verify extends AbstractTest {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private HeaderMyAccountPO headerMyAccountPage;
+	private MyAccountPO headerMyAccountPage;
 	private HeaderWishListPO headerWishListPage;
 	private FooterShoppingCartPO footerShoppingCartPage;
 	

@@ -3,13 +3,14 @@ package commons;
 import org.openqa.selenium.WebDriver;
 
 import pageObjects.FooterShoppingCartPO;
-import pageObjects.HeaderMyAccountPO;
+import pageObjects.MyAccountPO;
 import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.ProductDetailsPO;
 import pageObjects.RegisterPageObject;
 import pageObjects.SearchPO;
+import pageObjects.SortPO;
 
 public class PageGeneratorManager {
 
@@ -25,8 +26,8 @@ public class PageGeneratorManager {
 		return new LoginPageObject(driver);
 	}
 
-	public static HeaderMyAccountPO getHeaderMyAccountPage(WebDriver driver) {
-		return new HeaderMyAccountPO(driver);
+	public static MyAccountPO getHeaderMyAccountPage(WebDriver driver) {
+		return new MyAccountPO(driver);
 	}
 
 	public static HeaderWishListPO getHeaderWishListPage(WebDriver driver) {
@@ -43,5 +44,9 @@ public class PageGeneratorManager {
 	
 	public static SearchPO getSearchPage(WebDriver driver) {
 		return new SearchPO(driver);
+	}
+	
+	public static SortPO getSortPage(WebDriver driver) {
+		return new SortPO(driver);
 	}
 }

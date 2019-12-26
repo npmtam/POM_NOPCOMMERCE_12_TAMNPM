@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import pageUIs.MyAccountPageUI;
 
-public class HeaderMyAccountPO extends AbstractPage {
+public class MyAccountPO extends AbstractPage {
 	WebDriver driver;
 
-	public HeaderMyAccountPO(WebDriver driver) {
+	public MyAccountPO(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 	}

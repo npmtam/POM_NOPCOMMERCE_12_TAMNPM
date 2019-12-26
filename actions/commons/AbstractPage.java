@@ -1,5 +1,8 @@
 package commons;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -18,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 import pageObjects.FooterShoppingCartPO;
-import pageObjects.HeaderMyAccountPO;
+import pageObjects.MyAccountPO;
 import pageObjects.HeaderWishListPO;
 import pageUIs.AbstractPageUI;
 
@@ -255,6 +258,13 @@ public class AbstractPage {
 		element = driver.findElement(By.xpath(locator));
 		action.moveToElement(element).perform();
 	}
+	
+	public void hoverMouseToElement(String locator, String...values) {
+		locator = String.format(locator, (Object[])values);
+		element = driver.findElement(By.xpath(locator));
+		action.moveToElement(element).perform();
+	}
+	
 
 	public void doubleClickToElement(String locator) {
 		element = driver.findElement(By.xpath(locator));
@@ -400,6 +410,14 @@ public class AbstractPage {
 		clickToElement(AbstractPageUI.HEADER_LINKS, pageName);
 	}
 	
+	public void openDynamicSubMenu(String menuText, String subMenu) {
+		waitToElementVisible(AbstractPageUI.HEADER_MENU_DYNAMIC, menuText);
+		hoverMouseToElement(AbstractPageUI.HEADER_MENU_DYNAMIC, menuText);
+		sleepInSecond(1);
+		clickToElement(AbstractPageUI.HEADER_SUB_MENU_DYNAMIC, subMenu);
+		
+	}
+	
 	public void openMultiplePagesFooter(String pageName) {
 		waitToElementVisible(AbstractPageUI.FOOTER_LINKS, pageName);
 		clickToElement(AbstractPageUI.FOOTER_LINKS, pageName);
@@ -415,4 +433,29 @@ public class AbstractPage {
 		return elements.size();
 	}
 	
+	public List<String> getTextListElements(String locator) {
+		String textElement = null;
+		List<String> allText = new ArrayList<String>();
+		elements = driver.findElements(By.xpath(locator));
+		for (WebElement item : elements) {
+			textElement = item.getText();
+			System.out.println(textElement);
+			allText.add(textElement);
+		}
+		return allText;
+	}
+	
+	public boolean checkOrderListElements(String locator){
+		ArrayList<String> listElement = new ArrayList<>();
+		elements = driver.findElements(By.xpath(locator));
+		for(WebElement item:elements) {
+			listElement.add(item.getText());
+		}
+		ArrayList<String> sortedList = new ArrayList<>();
+		for(String item:listElement) {
+			sortedList.add(item);
+		}
+		Collections.sort(sortedList);
+		return sortedList.equals(listElement);
+	}
 }

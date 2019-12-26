@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 import commons.AbstractPage;
 import commons.PageGeneratorManager;
 import pageObjects.FooterShoppingCartPO;
-import pageObjects.HeaderMyAccountPO;
+import pageObjects.MyAccountPO;
 import pageObjects.HeaderWishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
@@ -37,7 +37,7 @@ public class Topic_08_DynamicLocator_and_RestParamater {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private HeaderMyAccountPO headerMyAccountPage;
+	private MyAccountPO headerMyAccountPage;
 	private HeaderWishListPO headerWishListPage;
 	private FooterShoppingCartPO footerShoppingCartPage;
 	

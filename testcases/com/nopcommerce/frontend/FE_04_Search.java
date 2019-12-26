@@ -231,4 +231,62 @@ public class FE_04_Search extends AbstractTest {
 		verifyEquals(searchPage.countProductInSearchResult(), 1);
 		verifyTrue(searchPage.isSearchResultDisplayedProduct("Apple MacBook Pro 13-inch"));
 	}
+	
+	@Test
+	public void TC_10_AdvanceSearchPriceRangeLowerProductPrice() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC10 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC10 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC10 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC10 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC10 - Step 05: Select Manufacturer");
+		searchPage.selectDropdown("Manufacturer", "Apple");
+		
+		log.info("Search - TC10 - Step 06: Input price range");
+		searchPage.inputToPriceRangeTextboxes("price-from", "1000");
+		searchPage.inputToPriceRangeTextboxes("price-to", "1700");
+		
+		log.info("Search - TC10 - Step 07: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC10 - Step 08: Verify error message");
+		verifyTrue(searchPage.isErrorMessageEquals("no-result", "No products were found that matched your criteria."));
+	}
+	
+	@Test
+	public void TC_11_AdvanceSearchPriceRangeLargerProductPrice() {
+		abstractPage.sleepInSecond(1);
+		log.info("Search - TC11 - Step 01: Search keyword");
+		searchPage.inputToSearchTextbox("Apple Macbook Pro");
+		
+		log.info("Search - TC11 - Step 02: Check advance search option");
+		searchPage.checkToAdvanceSearch();
+		
+		log.info("Search - TC11 - Step 03: Select category");
+		searchPage.selectDropdown("Category", "Computers");
+		
+		log.info("Search - TC11 - Step 04: Check auto search sub categories checkbox");
+		searchPage.checkToAutoSearchSubCategories();
+		
+		log.info("Search - TC11 - Step 05: Select Manufacturer");
+		searchPage.selectDropdown("Manufacturer", "Apple");
+		
+		log.info("Search - TC11 - Step 06: Input price range");
+		searchPage.inputToPriceRangeTextboxes("price-from", "1900");
+		searchPage.inputToPriceRangeTextboxes("price-to", "5000");
+		
+		log.info("Search - TC11 - Step 07: Click search button");
+		searchPage.clickToSearchButton();
+		
+		log.info("Search - TC11 - Step 08: Verify error message");
+		verifyTrue(searchPage.isErrorMessageEquals("no-result", "No products were found that matched your criteria."));
+	}
 }
