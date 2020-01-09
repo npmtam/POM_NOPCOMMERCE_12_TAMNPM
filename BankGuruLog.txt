@@ -1,3 +1,7 @@
-2019-12-26 23:47:16,199 INFO  com.nopcommerce.frontend.FE_05_Sort - Precondition - Select Notebooks from Computers menu
-2019-12-26 23:47:19,247 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 01: Select sort by: Name: A to Z
-2019-12-26 23:47:21,022 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 02: Verify the products is ordered by name A to Z
+2020-01-09 23:56:36,460 INFO  com.nopcommerce.frontend.FE_05_Sort - Precondition - Select Notebooks from Computers menu
+2020-01-09 23:56:39,378 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 01: Select sort by: Name: A to Z
+2020-01-09 23:56:40,918 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 02: Verify the products is ordered by name A to Z
+2020-01-09 23:56:41,084 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 01: Select sort by: Name: Z to A
+2020-01-09 23:56:42,638 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 02: Verify the products is ordered by name Z to A
+2020-01-09 23:56:42,802 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 01: Select sort by: Price: Low to High
+2020-01-09 23:56:44,352 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC03 - Step 02: Verify the products is ordered by Price Low to High

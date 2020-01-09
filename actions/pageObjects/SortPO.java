@@ -1,11 +1,7 @@
 package pageObjects;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -14,6 +10,7 @@ import pageUIs.SortPageUI;
 
 public class SortPO extends AbstractPage {
 	WebDriver driver;
+	List<WebElement> elements;
 
 	public SortPO(WebDriver driver) {
 		super(driver);
@@ -25,7 +22,19 @@ public class SortPO extends AbstractPage {
 	}
 
 	public boolean checkProductSortNameAToZ() {
-		return checkOrderListElements(SortPageUI.LIST_TITLE_PRODUCTS);
+		return checkElementsSorted(SortPageUI.LIST_TITLE_PRODUCTS);
+	}
+	
+	public boolean checkProductSortNameZToA() {
+		return checkElementsSortedReverse(SortPageUI.LIST_TITLE_PRODUCTS);
+	}
+	
+	public boolean checkProductSortPriceLowToHigh() {
+		return checkElementsSorted(SortPageUI.LIST_PRODUCTS_PRICE);
+	}
+	
+	public boolean checkProductSortPriceHighToLow() {
+		return checkElementsSortedReverse(SortPageUI.LIST_PRODUCTS_PRICE);
 	}
 
 }
