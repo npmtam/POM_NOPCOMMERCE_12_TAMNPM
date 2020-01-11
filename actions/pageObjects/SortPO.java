@@ -36,5 +36,15 @@ public class SortPO extends AbstractPage {
 	public boolean checkProductSortPriceHighToLow() {
 		return checkElementsSortedReverse(SortPageUI.LIST_PRODUCTS_PRICE);
 	}
+	
+	public void selectDisplayProducts(String numProducts) {
+		selectItemInDropdown(SortPageUI.DISPLAY_DROPDOWNLIST, numProducts);
+	}
+	
+	public boolean checkNumberProductsDisplay(int expectedNumber) {
+		 int actualNumber = countElements(SortPageUI.LIST_PRODUCTS_TITLE);
+		 System.out.println(actualNumber);
+		 return actualNumber<=expectedNumber;
+	}
 
 }

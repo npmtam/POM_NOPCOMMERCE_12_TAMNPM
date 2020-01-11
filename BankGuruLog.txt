@@ -1,7 +1,15 @@
-2020-01-09 23:56:36,460 INFO  com.nopcommerce.frontend.FE_05_Sort - Precondition - Select Notebooks from Computers menu
-2020-01-09 23:56:39,378 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 01: Select sort by: Name: A to Z
-2020-01-09 23:56:40,918 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 02: Verify the products is ordered by name A to Z
-2020-01-09 23:56:41,084 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 01: Select sort by: Name: Z to A
-2020-01-09 23:56:42,638 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 02: Verify the products is ordered by name Z to A
-2020-01-09 23:56:42,802 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 01: Select sort by: Price: Low to High
-2020-01-09 23:56:44,352 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC03 - Step 02: Verify the products is ordered by Price Low to High
+2020-01-11 21:17:09,222 INFO  com.nopcommerce.frontend.FE_05_Sort - Precondition - Select Notebooks from Computers menu
+2020-01-11 21:17:12,118 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 01: Select sort by: Name: A to Z
+2020-01-11 21:17:14,368 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC01 - Step 02: Verify the products are ordered by name A to Z
+2020-01-11 21:17:14,497 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 01: Select sort by: Name: Z to A
+2020-01-11 21:17:16,043 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC02 - Step 02: Verify the products are ordered by name Z to A
+2020-01-11 21:17:16,152 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC03 - Step 01: Select sort by: Price: Low to High
+2020-01-11 21:17:17,805 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC03 - Step 02: Verify the products are ordered by Price Low to High
+2020-01-11 21:17:17,914 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC04 - Step 01: Select sort by: Price: High To Low
+2020-01-11 21:17:18,598 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC04 - Step 02: Verify the products are ordered by Price High to Low
+2020-01-11 21:17:18,703 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC05 - Step 01: Select display per page dropdown list
+2020-01-11 21:17:19,353 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC05 - Step 02: Verify 3 products displayed on page
+2020-01-11 21:17:19,365 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC06 - Step 01: Select display per page dropdown list
+2020-01-11 21:17:20,600 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC06 - Step 02: Verify 6 products displayed on page
+2020-01-11 21:17:20,614 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC07 - Step 01: Select display per page dropdown list
+2020-01-11 21:17:21,300 INFO  com.nopcommerce.frontend.FE_05_Sort - Sort - TC07 - Step 02: Verify 9 products displayed on page

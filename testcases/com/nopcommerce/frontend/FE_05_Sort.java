@@ -59,15 +59,11 @@ public class FE_05_Sort extends AbstractTest {
 
 	@Test
 	public void TC_03_SortByPriceLowToHigh() {
-		log.info("Sort - TC02 - Step 01: Select sort by: Price: Low to High");
+		log.info("Sort - TC03 - Step 01: Select sort by: Price: Low to High");
 		sortPage.selectSortByDropdown("Price: Low to High");
 
 		log.info("Sort - TC03 - Step 02: Verify the products are ordered by Price Low to High");
 		assertTrue(sortPage.checkProductSortPriceLowToHigh());
-
-		sortPage.selectSortByDropdown("Price: High to Low");
-
-		assertTrue(sortPage.checkProductSortPriceHighToLow());
 	}
 
 	@Test
@@ -75,7 +71,34 @@ public class FE_05_Sort extends AbstractTest {
 		log.info("Sort - TC04 - Step 01: Select sort by: Price: High To Low");
 		sortPage.selectSortByDropdown("Price: High to Low");
 
-		log.info("Sort - TC05 - Step 02: Verify the products are ordered by Price High to Low");
+		log.info("Sort - TC04 - Step 02: Verify the products are ordered by Price High to Low");
 		assertTrue(sortPage.checkProductSortPriceHighToLow());
+	}
+	
+	@Test
+	public void TC_05_Display3ProductsPerPage() {
+		log.info("Sort - TC05 - Step 01: Select display per page dropdown list");
+		sortPage.selectDisplayProducts("3");
+		
+		log.info("Sort - TC05 - Step 02: Verify 3 products displayed on page");
+		sortPage.checkNumberProductsDisplay(3);
+	}
+	
+	@Test
+	public void TC_06_Display6ProductsPerPage() {
+		log.info("Sort - TC06 - Step 01: Select display per page dropdown list");
+		sortPage.selectDisplayProducts("6");
+		
+		log.info("Sort - TC06 - Step 02: Verify 6 products displayed on page");
+		sortPage.checkNumberProductsDisplay(6);
+	}
+	
+	@Test
+	public void TC_07_Display9ProductsPerPage() {
+		log.info("Sort - TC07 - Step 01: Select display per page dropdown list");
+		sortPage.selectDisplayProducts("9");
+		
+		log.info("Sort - TC07 - Step 02: Verify 9 products displayed on page");
+		sortPage.checkNumberProductsDisplay(9);
 	}
 }
