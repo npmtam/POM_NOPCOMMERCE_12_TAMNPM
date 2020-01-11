@@ -17,12 +17,9 @@ import pageObjects.LoginPageObject;
 import pageObjects.SearchPO;
 import pageObjects.SortPO;
 
-public class FE_05_Sort extends AbstractTest {
+public class FE_05_Sort_Display extends AbstractTest {
 	WebDriver driver;
-	private HomePageObject homePage;
 	private AbstractPage abstractPage;
-	private LoginPageObject loginPage;
-	private SearchPO searchPage;
 	private SortPO sortPage;
 
 	@BeforeTest

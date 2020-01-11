@@ -23,7 +23,7 @@ import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 
 import pageObjects.FooterShoppingCartPO;
 import pageObjects.MyAccountPO;
-import pageObjects.HeaderWishListPO;
+import pageObjects.WishListPO;
 import pageUIs.AbstractPageUI;
 
 public class AbstractPage {

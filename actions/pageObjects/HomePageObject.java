@@ -57,4 +57,10 @@ public class HomePageObject extends AbstractPage {
 		clickToElement(HomePageUI.PRODUCT_TITLE, productTitle);
 	}
 	
+	public void clickToHeaderWishList() {
+		waitToElementVisible(HomePageUI.HEADER_WISHLIST_LINK);
+		clickToElement(HomePageUI.HEADER_WISHLIST_LINK);
+	}
+	
+	
 }

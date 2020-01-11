@@ -20,7 +20,7 @@ public class FE_02_Login extends AbstractTest{
 	private AbstractPage abstractPage;
 	private LoginPageObject loginPage;
 	private FE_01_Register registerTestcasess;
-	String email;
+	public String email;
 	
 	@BeforeClass
 	public void beforeClass() {	

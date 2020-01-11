@@ -43,8 +43,8 @@ public class SortPO extends AbstractPage {
 	
 	public boolean checkNumberProductsDisplay(int expectedNumber) {
 		 int actualNumber = countElements(SortPageUI.LIST_PRODUCTS_TITLE);
-		 System.out.println(actualNumber);
 		 return actualNumber<=expectedNumber;
 	}
 
 }
+

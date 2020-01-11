@@ -7,6 +7,11 @@ public class ProductDetailsUI {
 	public static final String REVIEW_TITLE = "//input[@class='review-title']";
 	public static final String REVIEW_TEXTAREA = "//textarea[@class='review-text']";
 	public static final String SUBMIT_REVIEW_BUTTON = "//input[@value='Submit review']";
-	
 	public static final String RESULT_LABEL = "//div[@class='result']";
+	
+	public static final String ADD_TO_WISHLIST_BUTTON = "//input[@id='add-to-wishlist-button-4']";
+	public static final String SUCCESS_MESSAGE = "//div[@class='bar-notification success']/p[@class='content']";
+	public static final String WISHLIST_LINK_IN_SUCCESS_MSG = "//a[text()='wishlist']";
+	
+	public static final String PRODUCT_TITLE_WISHLIST = "//a[@class='product-name']";
 }

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.FooterShoppingCartPO;
 import pageObjects.MyAccountPO;
-import pageObjects.HeaderWishListPO;
+import pageObjects.WishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.ProductDetailsPO;
@@ -30,10 +30,6 @@ public class PageGeneratorManager {
 		return new MyAccountPO(driver);
 	}
 
-	public static HeaderWishListPO getHeaderWishListPage(WebDriver driver) {
-		return new HeaderWishListPO(driver);
-	}
-
 	public static FooterShoppingCartPO getFooterShoppingCartPage(WebDriver driver) {
 		return new FooterShoppingCartPO(driver);
 	}
@@ -48,5 +44,9 @@ public class PageGeneratorManager {
 	
 	public static SortPO getSortPage(WebDriver driver) {
 		return new SortPO(driver);
+	}
+	
+	public static WishListPO getWishListPage(WebDriver driver) {
+		return new WishListPO(driver);
 	}
 }

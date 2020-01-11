@@ -21,7 +21,7 @@ import commons.AbstractTest;
 import commons.PageGeneratorManager;
 import pageObjects.FooterShoppingCartPO;
 import pageObjects.MyAccountPO;
-import pageObjects.HeaderWishListPO;
+import pageObjects.WishListPO;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -39,7 +39,7 @@ public class Topic_11_Assert_and_Verify extends AbstractTest {
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	private MyAccountPO headerMyAccountPage;
-	private HeaderWishListPO headerWishListPage;
+	private WishListPO headerWishListPage;
 	private FooterShoppingCartPO footerShoppingCartPage;
 	
 	
@@ -98,7 +98,7 @@ public class Topic_11_Assert_and_Verify extends AbstractTest {
 	@Test
 	public void TC_03_openMultiplePages() {
 		homePage.openMultiplePagesHeader("My account");
-		headerWishListPage = PageGeneratorManager.getHeaderWishListPage(driver);
+		headerWishListPage = PageGeneratorManager.getWishListPage(driver);
 		
 		headerWishListPage.openMultiplePagesFooter("Shopping cart");
 		footerShoppingCartPage = PageGeneratorManager.getFooterShoppingCartPage(driver);
