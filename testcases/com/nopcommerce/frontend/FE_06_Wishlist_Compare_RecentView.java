@@ -67,8 +67,55 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		log.info("WishList - TC01 - Step 03: Access wishlist page");
 		wishListPage.clickToAccessWishList();
 		
-		log.info("WishList - TC02 - Step 04: Verify product added to wish list");
+		log.info("WishList - TC01 - Step 04: Verify product added to wish list");
 		verifyTrue(wishListPage.isProductAddedToWishList(productName));
+		
+		log.info("WishList - TC01 - Step 05: Click to Your wishlist URL for sharing");
+		abstractPage.sleepInSecond(1);
+		wishListPage.clickToURLSharing();
+		
+		log.info("WishList - TC01 - Step 06: Verify product present in Wishlist URL for sharing");
+		verifyTrue(wishListPage.isProductAddedToWishList(productName));
+	}
+	
+	@Test
+	public void TC_02_AddProductToCartFromWishListPage() {
+		log.info("WishList - TC02 - Step 01: Access wishlist page");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		abstractPage.sleepInSecond(1);
+		homePage.clickToLogoToBackHome();
+		abstractPage.sleepInSecond(1);
+		homePage.clickToHeaderWishList();
+		verifyTrue(abstractPage.isSubPageTitleEquals("Wishlist"));
+		
+		log.info("WishList - TC02 - Step 02: Add product to cart");
+		wishListPage = PageGeneratorManager.getWishListPage(driver);
+		abstractPage.sleepInSecond(1);
+		wishListPage.clickToAddToCartCheckbox();
+		verifyTrue(wishListPage.isAddToCardCheckboxSelected());
+		wishListPage.clickToAddToCardButton();
+		
+		log.info("WishList - TC02 - Step 03: Verify the product was added to Cart");
+		verifyTrue(abstractPage.isSubPageTitleEquals("Shopping cart"));
+		verifyTrue(wishListPage.isProductAddedToWishList(productName));
+		
+		log.info("WishList - TC02 - Step 04: Verify the product was removed from Wishlist");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.clickToHeaderWishList();
+		
+		wishListPage = PageGeneratorManager.getWishListPage(driver);
+		verifyTrue(wishListPage.isWishListEmpty());
+	}
+	
+	@Test
+	public void TC_03_RemoveProductInWishlist() {
+		log.info("WishList - TC03  - Step 01: Add product to wishlist");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage.clickToLogoToBackHome();
+		abstractPage.sleepInSecond(1);
+		homePage.clickToHeaderWishList();
+		
+		
 	}
 	
 }

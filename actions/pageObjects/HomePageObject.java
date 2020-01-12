@@ -62,5 +62,10 @@ public class HomePageObject extends AbstractPage {
 		clickToElement(HomePageUI.HEADER_WISHLIST_LINK);
 	}
 	
+	public void clickToLogoToBackHome() {
+		waitToElementClickable(HomePageUI.LOGO_LINK);
+		clickToElement(HomePageUI.LOGO_LINK);
+	}
+	
 	
 }

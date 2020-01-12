@@ -477,4 +477,9 @@ public class AbstractPage {
 		Collections.reverse(sortedList);
 		return sortedList.equals(listElement);
 	}
+	
+	public boolean isSubPageTitleEquals(String expectedTitle) {
+		String actualTitle = getTextElement(AbstractPageUI.SUB_PAGE_TITLE);
+		return actualTitle.contains(expectedTitle);
+	}
 }

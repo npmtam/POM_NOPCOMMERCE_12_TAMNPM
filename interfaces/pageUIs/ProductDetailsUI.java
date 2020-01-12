@@ -12,6 +12,10 @@ public class ProductDetailsUI {
 	public static final String ADD_TO_WISHLIST_BUTTON = "//input[@id='add-to-wishlist-button-4']";
 	public static final String SUCCESS_MESSAGE = "//div[@class='bar-notification success']/p[@class='content']";
 	public static final String WISHLIST_LINK_IN_SUCCESS_MSG = "//a[text()='wishlist']";
+	public static final String WISHLIST_URL_SHARING = "//a[@class='share-link']";
+	public static final String ADD_TO_CARD_CHECKBOX = "//input[@name='addtocart']";
+	public static final String ADD_TO_CARD_BUTTON = "//input[@name='addtocartbutton']";
+	public static final String EMPTY_WISHLIST_MSG = "//div[@class='page-body']/div[@class='no-data']";
 	
 	public static final String PRODUCT_TITLE_WISHLIST = "//a[@class='product-name']";
 }
