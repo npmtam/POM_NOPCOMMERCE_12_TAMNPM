@@ -14,7 +14,9 @@ public class ProductDetailsUI {
 	public static final String WISHLIST_LINK_IN_SUCCESS_MSG = "//a[text()='wishlist']";
 	public static final String WISHLIST_URL_SHARING = "//a[@class='share-link']";
 	public static final String ADD_TO_CARD_CHECKBOX = "//input[@name='addtocart']";
+	public static final String REMOVE_CHECKBOX = "//input[@name='removefromcart']";
 	public static final String ADD_TO_CARD_BUTTON = "//input[@name='addtocartbutton']";
+	public static final String UPDATE_WISHLIST_BUTTON = "//input[@name='updatecart']";
 	public static final String EMPTY_WISHLIST_MSG = "//div[@class='page-body']/div[@class='no-data']";
 	
 	public static final String PRODUCT_TITLE_WISHLIST = "//a[@class='product-name']";

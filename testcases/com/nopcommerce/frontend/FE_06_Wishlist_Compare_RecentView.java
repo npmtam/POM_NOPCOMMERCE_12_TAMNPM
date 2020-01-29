@@ -1,5 +1,7 @@
 package com.nopcommerce.frontend;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -82,9 +84,9 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 	public void TC_02_AddProductToCartFromWishListPage() {
 		log.info("WishList - TC02 - Step 01: Access wishlist page");
 		homePage = PageGeneratorManager.getHomePage(driver);
-		abstractPage.sleepInSecond(1);
-		homePage.clickToLogoToBackHome();
-		abstractPage.sleepInSecond(1);
+//		abstractPage.sleepInSecond(1);
+//		homePage.clickToLogoToBackHome();
+//		abstractPage.sleepInSecond(1);
 		homePage.clickToHeaderWishList();
 		verifyTrue(abstractPage.isSubPageTitleEquals("Wishlist"));
 		
@@ -113,9 +115,28 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToLogoToBackHome();
 		abstractPage.sleepInSecond(1);
-		homePage.clickToHeaderWishList();
+		homePage.clickToProductTitle(productName);
 		
+		wishListPage = PageGeneratorManager.getWishListPage(driver);
+		wishListPage.clickAddToWishListButton();
 		
+		wishListPage.isSuccessMessageContains("The product has been added to your ");
+		
+		log.info("WishList - TC03 - Step 02: Access wishlist page");
+		wishListPage.clickToAccessWishList();
+		
+		log.info("WishList - TC03 - Step 03: Select checkbox remove");
+		abstractPage.sleepInSecond(1);
+		wishListPage.clickToRemoveCheckbox();
+		
+		log.info("WishList - TC03 - Step 04: Click button UPDATE WISHLIST");
+		wishListPage.clickToUpdateWishListButton();
+		
+		log.info("WishList - TC03 - Step 05: Verify message: The wishlist is empty!");
+		wishListPage.isErrorMessageEquals("The wishlist is empty!");
+		
+		log.info("WishList - TC03 - Step 06: Verify the product is not present in WishList");
+		verifyTrue(wishListPage.isProducstPresentEquals(0));
 	}
 	
 }

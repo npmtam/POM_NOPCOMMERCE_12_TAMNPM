@@ -19,6 +19,7 @@ public class WishListPO extends AbstractPage {
 	}
 	
 	public void clickAddToWishListButton() {
+		waitToElementClickable(ProductDetailsUI.ADD_TO_WISHLIST_BUTTON);
 		clickToElement(ProductDetailsUI.ADD_TO_WISHLIST_BUTTON);
 	}
 	
@@ -56,8 +57,26 @@ public class WishListPO extends AbstractPage {
 	}
 	
 	public boolean isWishListEmpty() {
-		waitToElementVisible(ProductDetailsUI.EMPTY_WISHLIST_MSG);
 		return isElementDisplayed(ProductDetailsUI.EMPTY_WISHLIST_MSG);
+	}
+	
+	public void clickToRemoveCheckbox() {
+		waitToElementClickable(ProductDetailsUI.REMOVE_CHECKBOX);
+		clickToElement(ProductDetailsUI.REMOVE_CHECKBOX);
+	}
+	
+	public void clickToUpdateWishListButton() {
+		waitToElementClickable(ProductDetailsUI.UPDATE_WISHLIST_BUTTON);
+		clickToElement(ProductDetailsUI.UPDATE_WISHLIST_BUTTON);
+	}
+	
+	public boolean isErrorMessageEquals(String expectedText) {
+		String actualResult = getTextElement(ProductDetailsUI.EMPTY_WISHLIST_MSG);
+		return actualResult.equals(expectedText);
+	}
+	
+	public boolean isProducstPresentEquals(int expectedResult) {
+		return countElements(ProductDetailsUI.PRODUCT_TITLE_WISHLIST) == expectedResult;
 	}
 	
 }

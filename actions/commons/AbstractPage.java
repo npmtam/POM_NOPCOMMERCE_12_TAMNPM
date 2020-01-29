@@ -185,13 +185,17 @@ public class AbstractPage {
 	}
 
 	public boolean isElementDisplayed(String locator) {
+		overideGlobalTimeout(shortTimeout);
 		element = driver.findElement(By.xpath(locator));
+		overideGlobalTimeout(longTimeout);
 		return element.isDisplayed();
 	}
 
 	public boolean isElementDisplayed(String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
+		overideGlobalTimeout(shortTimeout);
 		element = driver.findElement(By.xpath(locator));
+		overideGlobalTimeout(longTimeout);
 		return element.isDisplayed();
 	}
 
@@ -433,7 +437,9 @@ public class AbstractPage {
 	}
 
 	public int countElements(String locators) {
+		overideGlobalTimeout(shortTimeout);
 		elements = driver.findElements(By.xpath(locators));
+		overideGlobalTimeout(longTimeout);
 		return elements.size();
 	}
 
