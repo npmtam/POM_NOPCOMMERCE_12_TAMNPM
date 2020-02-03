@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.HomePageUI;
 import pageUIs.ProductDetailsUI;
 
 public class WishListPO extends AbstractPage {
@@ -12,6 +11,7 @@ public class WishListPO extends AbstractPage {
 	public WishListPO(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		
 	}
 	
 	public boolean isWishListButtonDisplayed() {
@@ -28,9 +28,9 @@ public class WishListPO extends AbstractPage {
 		return actualMsg.contains(expectedMsg);
 	}
 	
-	public void clickToAccessWishList() {
-		waitToElementClickable(ProductDetailsUI.WISHLIST_LINK_IN_SUCCESS_MSG);
-		clickToElement(ProductDetailsUI.WISHLIST_LINK_IN_SUCCESS_MSG);
+	public void clickToAccessLinkFromSuccessMsg(String textLink) {
+		waitToElementVisible(ProductDetailsUI.LINK_IN_SUCCESS_MSG, textLink);
+		clickToElement(ProductDetailsUI.LINK_IN_SUCCESS_MSG, textLink);
 	}
 	
 	public boolean isProductAddedToWishList(String productName) {
@@ -77,6 +77,23 @@ public class WishListPO extends AbstractPage {
 	
 	public boolean isProducstPresentEquals(int expectedResult) {
 		return countElements(ProductDetailsUI.PRODUCT_TITLE_WISHLIST) == expectedResult;
+	}
+	
+	public void clickToAddToCompareButton() {
+		waitToElementClickable(ProductDetailsUI.ADD_TO_COMPARE_BUTTON);
+		clickToElement(ProductDetailsUI.ADD_TO_COMPARE_BUTTON);
+	}
+	
+	public boolean isPriceOfProductEquals(String productName, String expectedPrice) {
+		long index = getIndexFromProductName(productName);
+		waitToElementVisible(ProductDetailsUI.PRICE_IN_COMPARE_LIST, index);
+		String price = getTextElement(ProductDetailsUI.PRICE_IN_COMPARE_LIST, index);
+		return price.equals(expectedPrice);
+	}
+	
+	public void clickToClearListButton() {
+		waitToElementClickable(ProductDetailsUI.CLEAR_LIST_BUTTON);
+		clickToElement(ProductDetailsUI.CLEAR_LIST_BUTTON);
 	}
 	
 }

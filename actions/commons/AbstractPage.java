@@ -17,6 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.w3c.dom.xpath.XPathResult;
 
 import com.google.common.collect.Ordering;
 import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
@@ -178,6 +179,12 @@ public class AbstractPage {
 		element = driver.findElement(By.xpath(locator));
 		return element.getText();
 	}
+	
+	public String getTextElement(String locator, long indexValue) {
+		locator = String.format(locator, indexValue);
+		element = driver.findElement(By.xpath(locator));
+		return element.getText();
+	}
 
 	public int countNumberOfElement(String locator) {
 		elements = driver.findElements(By.xpath(locator));
@@ -307,6 +314,13 @@ public class AbstractPage {
 
 	public void waitToElementVisible(String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
+		by = By.xpath(locator);
+		waitExplicit = new WebDriverWait(driver, longTimeout);
+		waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
+	public void waitToElementVisible(String locator, long indexValue) {
+		locator = String.format(locator, indexValue);
 		by = By.xpath(locator);
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -487,5 +501,10 @@ public class AbstractPage {
 	public boolean isSubPageTitleEquals(String expectedTitle) {
 		String actualTitle = getTextElement(AbstractPageUI.SUB_PAGE_TITLE);
 		return actualTitle.contains(expectedTitle);
+	}
+	
+	public long getIndexFromProductName(String productName) {
+		jsExecutor = (JavascriptExecutor) driver;
+		return (long) jsExecutor.executeScript("return $(document.evaluate(\"//a[text()='"+productName+"']/parent::td\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue).index() +1;");
 	}
 }
