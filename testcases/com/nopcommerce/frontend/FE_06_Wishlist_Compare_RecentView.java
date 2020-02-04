@@ -207,6 +207,7 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		homePage.clickToProductTitle(productName2);
 		
 		log.info("WishList - TC05 - Step 03: View product details 2");
+		abstractPage.sleepInSecond(1);
 		homePage.clickToProductTitle(productName3);
 		
 		log.info("WishList - TC05 - Step 04: View product details 3");
@@ -219,9 +220,13 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		homePage.openMultiplePagesFooter("Recently viewed products");
 		abstractPage.sleepInSecond(1);
 		
-		log.info("WishList - TC05 - Step 07: Verify only 3 products appears");
+		log.info("WishList - TC05 - Step 08: Verify only 3 latest products viewed displayed");
 		wishListPage = PageGeneratorManager.getWishListPage(driver);
 		verifyTrue(wishListPage.isProducstPresentEquals(3));
+		
+		verifyTrue(wishListPage.isLatestViewedProductsPresent(productName5));
+		verifyTrue(wishListPage.isLatestViewedProductsPresent(productName4));
+		verifyTrue(wishListPage.isLatestViewedProductsPresent(productName3));
 	}
 	
 	@AfterClass

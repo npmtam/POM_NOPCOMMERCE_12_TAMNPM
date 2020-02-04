@@ -96,4 +96,10 @@ public class WishListPO extends AbstractPage {
 		clickToElement(ProductDetailsUI.CLEAR_LIST_BUTTON);
 	}
 	
+	public boolean isLatestViewedProductsPresent(String productName) {
+		waitToElementVisible(ProductDetailsUI.PRODUCT_TITLE, productName);
+		return isElementPresentInDOM(ProductDetailsUI.PRODUCT_TITLE, productName);
+		
+	}
+	
 }

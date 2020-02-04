@@ -25,4 +25,5 @@ public class ProductDetailsUI {
 	public static final String COMPARE_LINK_IN_SUCCESS_MSG = "//a[text()='product comparison']";
 	public static final String PRICE_IN_COMPARE_LIST = "//tr[@class='product-price']/td[%s]";
 	public static final String CLEAR_LIST_BUTTON = "//a[@class='clear-list']";
+	public static final String PRODUCT_TITLE = "//h2[@class='product-title']/a[contains(text(), '%s')]";
 }

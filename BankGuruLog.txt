@@ -1,29 +1,32 @@
-2020-02-02 23:24:17,398 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - Precondition: Login
-2020-02-02 23:24:22,455 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:22,457 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - Pre-condition: Open product details
-2020-02-02 23:24:26,080 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:26,177 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 01: Click to add to wish list button
-2020-02-02 23:24:26,313 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 02: Verify success message
-2020-02-02 23:24:27,440 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 03: Access wishlist page
-2020-02-02 23:24:28,125 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 04: Verify product added to wish list
-2020-02-02 23:24:28,156 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:28,156 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 05: Click to Your wishlist URL for sharing
-2020-02-02 23:24:29,705 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC01 - Step 06: Verify product present in Wishlist URL for sharing
-2020-02-02 23:24:29,737 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:29,738 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 01: Click on the logo to turn back Home
-2020-02-02 23:24:33,155 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 02: Select a product
-2020-02-02 23:24:34,271 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 03: Click to add to compare list button
-2020-02-02 23:24:34,423 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 04: Verify success message appears
-2020-02-02 23:24:35,020 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:35,021 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 05: Click on the logo to turn back Home
-2020-02-02 23:24:36,654 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 06: Select another product
-2020-02-02 23:24:38,523 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 07: Click to add to compare list button
-2020-02-02 23:24:39,672 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 08: Access product comparison list
-2020-02-02 23:24:42,691 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:42,691 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 09: Verify product info in Comparison list - price
-2020-02-02 23:24:42,753 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:42,816 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:42,816 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 10: Click 'CLEAR LIST' button
-2020-02-02 23:24:45,286 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 11: Verify error message appears
-2020-02-02 23:24:45,322 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
-2020-02-02 23:24:45,322 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 12: Verify no product in list
+2020-02-04 15:36:33,936 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - Precondition: Login
+2020-02-04 15:36:38,779 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:38,781 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - Pre-condition: Open product details
+2020-02-04 15:36:42,876 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:42,896 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 01: Access Home page
+2020-02-04 15:36:46,510 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 02: Select a product
+2020-02-04 15:36:47,591 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 03: Click to add to compare list button
+2020-02-04 15:36:47,892 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 04: Verify success message appears
+2020-02-04 15:36:48,313 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:48,313 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 05: Back to Home page
+2020-02-04 15:36:51,028 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 06: Select another product
+2020-02-04 15:36:52,025 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 07: Click to add to compare list button
+2020-02-04 15:36:53,188 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 08: Access product comparison list
+2020-02-04 15:36:55,109 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:55,109 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 09: Verify product info in Comparison list - price
+2020-02-04 15:36:55,641 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:56,190 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:56,190 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 10: Click 'CLEAR LIST' button
+2020-02-04 15:36:57,386 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 11: Verify error message appears
+2020-02-04 15:36:57,938 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:36:57,938 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC04 - Step 12: Verify no product in list
+2020-02-04 15:36:58,002 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 01: Access Home page
+2020-02-04 15:37:01,068 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 02: View product details 2
+2020-02-04 15:37:02,479 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 03: View product details 2
+2020-02-04 15:37:04,578 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 04: View product details 3
+2020-02-04 15:37:06,489 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 05: View product details 4
+2020-02-04 15:37:08,078 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 06: Access 'Recently viewed products' section
+2020-02-04 15:37:09,969 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView - WishList - TC05 - Step 08: Verify only 3 latest products viewed displayed
+2020-02-04 15:37:10,037 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:37:10,128 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:37:10,196 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 
+2020-02-04 15:37:10,308 INFO  com.nopcommerce.frontend.FE_06_Wishlist_Compare_RecentView -  -------------------------- PASSED -------------------------- 

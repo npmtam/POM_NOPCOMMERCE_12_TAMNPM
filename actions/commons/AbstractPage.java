@@ -385,6 +385,16 @@ public class AbstractPage {
 			return false;
 		}
 	}
+	
+	public boolean isElementPresentInDOM(String locator, String values) {
+		locator = String.format(locator, values);
+		elements = driver.findElements(By.xpath(locator));
+		if (elements.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 //	// Header and footer navigations
 //	public HeaderMyAccountPO openHeaderMyAccountPage() {
