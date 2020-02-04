@@ -26,7 +26,7 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 	private LoginPageObject loginPage;
 	private WishListPO wishListPage;
 	private FE_01_Register registerTestCases;
-	String email, productName1, productName2, password;
+	String email, productName1, productName2, productName3, productName4, productName5, password;
 
 	@BeforeTest
 	public void beforeTest() {
@@ -40,6 +40,9 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		email = "tamqada@gmail.com";
 		productName1 = "Apple MacBook Pro 13-inch";
 		productName2 = "HTC One M8 Android L 5.0 Lollipop";
+		productName3 = "HTC One Mini Blue";
+		productName4 = "Nokia Lumia 1020";
+		productName5 = "Beats Pill 2.0 Wireless Speaker";
 		password = "123123";
 
 		log.info("Precondition: Login");
@@ -61,7 +64,7 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		verifyTrue(wishListPage.isWishListButtonDisplayed());
 	}
 	
-	@Test
+//	@Test
 	public void TC01_AddToWishList() {
 		log.info("WishList - TC01 - Step 01: Click to add to wish list button");
 		wishListPage.clickAddToWishListButton();
@@ -145,13 +148,13 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 	@Test
 	public void TC_04_Add_Product_To_Compare() {
 		homePage = PageGeneratorManager.getHomePage(driver);
-		log.info("WishList - TC04 - Step 01: Click on the logo to turn back Home");
+		log.info("WishList - TC04 - Step 01: Access Home page");
 		abstractPage.sleepInSecond(1);
 		homePage.clickToLogoToBackHome();
 		abstractPage.sleepInSecond(1);
 		
 		log.info("WishList - TC04 - Step 02: Select a product");
-		homePage.clickToProductTitle("HTC One M8");
+		homePage.clickToProductTitle(productName2);
 		
 		log.info("WishList - TC04 - Step 03: Click to add to compare list button");
 		wishListPage = PageGeneratorManager.getWishListPage(driver);
@@ -160,7 +163,7 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		log.info("WishList - TC04 - Step 04: Verify success message appears");
 		verifyTrue(wishListPage.isSuccessMessageContains("The product has been added to your product comparison"));
 		
-		log.info("WishList - TC04 - Step 05: Click on the logo to turn back Home");
+		log.info("WishList - TC04 - Step 05: Back to Home page");
 		homePage = PageGeneratorManager.getHomePage(driver);
 		homePage.clickToLogoToBackHome();
 		abstractPage.sleepInSecond(1);
@@ -190,6 +193,35 @@ public class FE_06_Wishlist_Compare_RecentView extends AbstractTest {
 		
 		log.info("WishList - TC04 - Step 12: Verify no product in list");
 		wishListPage.isProducstPresentEquals(0);
+	}
+	
+	@Test
+	public void TC_05_Recently_Viewed_Products() {
+		log.info("WishList - TC05 - Step 01: Access Home page");
+		homePage = PageGeneratorManager.getHomePage(driver);
+		abstractPage.sleepInSecond(1);
+		homePage.clickToLogoToBackHome();
+		abstractPage.sleepInSecond(1);
+		
+		log.info("WishList - TC05 - Step 02: View product details 2");
+		homePage.clickToProductTitle(productName2);
+		
+		log.info("WishList - TC05 - Step 03: View product details 2");
+		homePage.clickToProductTitle(productName3);
+		
+		log.info("WishList - TC05 - Step 04: View product details 3");
+		homePage.clickToProductTitle(productName4);
+		
+		log.info("WishList - TC05 - Step 05: View product details 4");
+		homePage.clickToProductTitle(productName5);
+		
+		log.info("WishList - TC05 - Step 06: Access 'Recently viewed products' section");
+		homePage.openMultiplePagesFooter("Recently viewed products");
+		abstractPage.sleepInSecond(1);
+		
+		log.info("WishList - TC05 - Step 07: Verify only 3 products appears");
+		wishListPage = PageGeneratorManager.getWishListPage(driver);
+		verifyTrue(wishListPage.isProducstPresentEquals(3));
 	}
 	
 	@AfterClass
